@@ -234,35 +234,62 @@ body {
 
 /* ================= CONTACT ================= */
 #contact {
-  background: linear-gradient(135deg, #0F0A14 0%, #1A1022 100%);
+  background: linear-gradient(135deg, #2D1B2E 0%, #1A1A1A 100%);
   color: white;
 }
 
+#contact .section-title {
+  color: white;
+}
+
+#contact .section-title::before {
+  content: '💌';
+}
+
+#contact .section-title::after {
+  background: linear-gradient(90deg, #FF6B9D, #FFA8C5);
+}
+
 .contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  font-size: 1.1rem;
+  padding: 15px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  background: rgba(255, 107, 157, 0.1);
+  transform: translateX(5px);
 }
 
 .contact-item i {
+  font-size: 1.5rem;
+  margin-right: 12px;
   color: #FF6B9D;
 }
 
-/* ================= FOOTER (PREVIOUS STYLE) ================= */
+.contact-item a {
+  color: #E5E7EB;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #FFA8C5;
+}
+
+/* ================= FOOTER ================ */
 footer {
-  background-color: #1A1A1A;
-  border-top: 1px solid #374151;
+  background-color: #0F0A14;
+  border-top: 1px solid #2A1E33;
   color: #9CA3AF;
   padding: 25px 0;
 }
-
-footer::before {
-  content: '✨ ';
-}
-
-footer::after {
-  content: ' ✨';
-}
-
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
@@ -609,6 +636,7 @@ footer::after {
 </body>
 
 </html>
+
 
 
 
