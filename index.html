@@ -1,651 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Komal Kumari | Portfolio</title>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- AOS -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-<style>
-  /* ================= GLOBAL ================= */
-body {
-  padding-top: 70px;
-  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
-  background-color: #0F0A14;
-  color: #F3F4F6;
-}
-
-/* ================= NAVBAR ================= */
-.navbar {
-  backdrop-filter: blur(12px);
-  background-color: rgba(15, 10, 20, 0.95) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-}
-
-.navbar-brand {
-  color: #FF6B9D !important;
-  font-size: 1.4rem;
-}
-
-.nav-link {
-  color: #D1CADA !important;
-  font-weight: 500;
-  margin: 0 8px;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #FF6B9D !important;
-}
-
-/* ================= HERO ================= */
-.hero {
-  height: 90vh;
-  background: linear-gradient(135deg, #140D1C 0%, #1C1026 50%, #2A1435 100%);
-  color: #F9FAFB;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '✨';
-  position: absolute;
-  font-size: 3rem;
-  top: 20%;
-  left: 15%;
-  opacity: 0.25;
-  animation: float 6s ease-in-out infinite;
-}
-
-.hero::after {
-  content: '💫';
-  position: absolute;
-  font-size: 2.5rem;
-  bottom: 30%;
-  right: 20%;
-  opacity: 0.25;
-  animation: float 5s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-}
-
-.hero h1 {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: #FFFFFF;
-}
-
-.hero .lead {
-  font-size: 1.5rem;
-  color: #D6CFE0;
-}
-
-/* ================= SECTIONS ================= */
-.section {
-  padding: 80px 0;
-}
-
-.section.bg-light {
-  background-color: #140D1C !important;
-}
-
-.section-title {
-  font-weight: 700;
-  margin-bottom: 50px;
-  color: #FFFFFF;
-  font-size: 2.5rem;
-  position: relative;
-  display: inline-block;
-}
-
-.section-title::before {
-  content: '🌸';
-  margin-right: 15px;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, #FF6B9D, #FFA8C5);
-  border-radius: 2px;
-}
-
-/* ================= TEXT ================= */
-.text-muted {
-  color: #B8B2C2 !important;
-}
-
-/* ================= BUTTONS ================= */
-.btn-primary {
-  background: linear-gradient(135deg, #FF6B9D 0%, #FFA8C5 100%);
-  border: none;
-  padding: 12px 32px;
-  font-weight: 600;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.35);
-}
-
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(255, 107, 157, 0.55);
-}
-
-/* ================= SKILLS ================= */
-.skill {
-  background: #18101F;
-  border: 1px solid #2A1E33;
-  padding: 18px;
-  border-radius: 20px;
-  text-align: center;
-  font-weight: 600;
-  color: #E5E7EB;
-  transition: all 0.3s ease;
-}
-
-.skill:hover {
-  background: linear-gradient(135deg, #FF6B9D, #FFA8C5);
-  color: #FFFFFF;
-  transform: translateY(-5px) scale(1.05);
-}
-
-/* ================= PROJECT CARDS ================= */
-.project-card {
-  background: #18101F;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid #2A1E33;
-  transition: all 0.3s ease;
-  height: 100%;
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(255, 107, 157, 0.25);
-  border-color: #FF6B9D;
-}
-
-.project-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.project-card h5 {
-  color: #FFFFFF;
-  font-weight: 700;
-}
-
-/* ================= PROJECT LINKS ================= */
-.project-links a {
-  margin-right: 18px;
-  font-weight: 600;
-  color: #FF6B9D;
-  text-decoration: none;
-}
-
-.project-links a:hover {
-  color: #FFA8C5;
-}
-
-/* ================= EXPERIENCE ================= */
-.experience-card {
-  background: #18101F;
-  border: 1px solid #2A1E33;
-  border-left: 5px solid #FF6B9D;
-  border-radius: 15px;
-  padding: 24px;
-  margin-bottom: 20px;
-  transition: all 0.3s ease;
-}
-
-.experience-card:hover {
-  transform: translateX(8px);
-  box-shadow: 0 10px 30px rgba(255, 107, 157, 0.25);
-}
-
-/* ================= ACHIEVEMENTS ================= */
-.achievement-card {
-  background: linear-gradient(135deg, #FF6B9D 0%, #FFA8C5 100%);
-  border-radius: 20px;
-  padding: 35px;
-  color: white;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.achievement-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 25px 50px rgba(255, 107, 157, 0.6);
-}
-
-/* ================= CONTACT ================= */
-#contact {
-  background: linear-gradient(135deg, #2D1B2E 0%, #1A1A1A 100%);
-  color: white;
-}
-
-#contact .section-title {
-  color: white;
-}
-
-#contact .section-title::before {
-  content: '💌';
-}
-
-#contact .section-title::after {
-  background: linear-gradient(90deg, #FF6B9D, #FFA8C5);
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 20px 0;
-  font-size: 1.1rem;
-  padding: 15px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  transition: all 0.3s ease;
-}
-
-.contact-item:hover {
-  background: rgba(255, 107, 157, 0.1);
-  transform: translateX(5px);
-}
-
-.contact-item i {
-  font-size: 1.5rem;
-  margin-right: 12px;
-  color: #FF6B9D;
-}
-
-.contact-item a {
-  color: #E5E7EB;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.contact-item a:hover {
-  color: #FFA8C5;
-}
-
-/* ================= FOOTER ================ */
-footer {
-  background-color: #0F0A14;
-  border-top: 1px solid #2A1E33;
-  color: #9CA3AF;
-  padding: 25px 0;
-}
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 768px) {
-  .hero h1 { font-size: 2.5rem; }
-  .section-title { font-size: 2rem; }
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1730" />
+  <meta name="description" content="Komal Kumari — final-year Computer Engineering student focused on AI/ML, Generative AI, and applied research." />
+  <title>Komal Kumari | AI/ML & Research Portfolio</title>
+  <style>
+    :root {
+      --navy: #0b1730;
+      --navy-2: #11264a;
+      --blue: #3478f6;
+      --blue-2: #eaf1ff;
+      --ink: #18243b;
+      --muted: #64718a;
+      --line: #e1e8f2;
+      --white: #ffffff;
+      --soft: #f6f8fc;
+      --shadow: 0 18px 50px rgba(11, 23, 48, .09);
+      --radius: 20px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body { margin: 0; color: var(--ink); background: var(--white); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible { outline: 3px solid #8bb3ff; outline-offset: 3px; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .nav-wrap { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.92); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(225,232,242,.85); }
+    nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font-weight: 850; letter-spacing: -.04em; color: var(--navy); font-size: 1.1rem; }
+    .brand span { color: var(--blue); }
+    .nav-links { display: flex; align-items: center; gap: 24px; font-size: .92rem; color: #43516a; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-cta { padding: 10px 16px; background: var(--navy); color: white !important; border-radius: 999px; font-weight: 700; }
+    .menu-btn { display: none; border: 1px solid var(--line); background: white; border-radius: 10px; padding: 8px 11px; font-size: 1.1rem; }
+    .hero { background: radial-gradient(circle at 82% 12%, rgba(52,120,246,.22), transparent 28%), linear-gradient(135deg, #0b1730 0%, #10264b 65%, #15396a 100%); color: white; padding: 92px 0 88px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 60px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: 7px 13px; color: #d7e5ff; font-size: .82rem; font-weight: 650; letter-spacing: .02em; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #70e1b4; box-shadow: 0 0 0 4px rgba(112,225,180,.13); }
+    h1 { font-size: clamp(2.7rem, 6vw, 4.8rem); line-height: 1.04; letter-spacing: -.065em; margin: 22px 0 20px; }
+    .hero h1 span { color: #8db5ff; }
+    .hero-copy { max-width: 680px; color: #d4def0; font-size: 1.1rem; margin: 0; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 9px; padding: 12px 18px; border-radius: 12px; font-weight: 750; border: 1px solid transparent; transition: transform .2s, background .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: #fff; color: var(--navy); }
+    .btn-outline { border-color: rgba(255,255,255,.35); color: white; }
+    .hero-card { padding: 28px; border-radius: 24px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); box-shadow: 0 22px 60px rgba(0,0,0,.14); }
+    .hero-card .monogram { width: 76px; height: 76px; border-radius: 22px; background: linear-gradient(145deg,#75a5ff,#3478f6); display: grid; place-items: center; color: white; font-size: 1.8rem; font-weight: 850; letter-spacing: -.06em; margin-bottom: 22px; }
+    .hero-card h2 { font-size: 1.25rem; margin: 0 0 5px; }
+    .hero-card p { margin: 0; color: #cfdaee; font-size: .94rem; }
+    .hero-stat { border-top: 1px solid rgba(255,255,255,.16); margin-top: 22px; padding-top: 18px; display: flex; align-items: baseline; gap: 10px; }
+    .hero-stat strong { font-size: 1.9rem; letter-spacing: -.05em; color: white; }
+    .hero-stat span { color: #cfdaee; font-size: .88rem; }
+    section { padding: 82px 0; }
+    .section-head { max-width: 720px; margin-bottom: 34px; }
+    .kicker { text-transform: uppercase; letter-spacing: .13em; color: var(--blue); font-size: .76rem; font-weight: 850; }
+    h2.section-title { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.12; letter-spacing: -.05em; margin: 10px 0 12px; color: var(--navy); }
+    .section-head p { color: var(--muted); margin: 0; font-size: 1.02rem; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .panel { border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; background: white; }
+    .panel h3 { margin: 0 0 10px; color: var(--navy); font-size: 1.08rem; }
+    .panel p { color: var(--muted); margin: 0; }
+    .pill-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 16px; }
+    .pill { padding: 7px 11px; background: var(--blue-2); color: #214f9c; border-radius: 999px; font-size: .84rem; font-weight: 700; }
+    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+    .metric { padding: 22px; border-radius: 16px; background: var(--soft); border: 1px solid var(--line); }
+    .metric strong { display: block; color: var(--navy); font-size: 1.7rem; letter-spacing: -.04em; }
+    .metric span { color: var(--muted); font-size: .88rem; }
+    .section-soft { background: var(--soft); }
+    .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .project-card { border: 1px solid var(--line); background: white; border-radius: var(--radius); padding: 25px; display: flex; flex-direction: column; min-height: 100%; box-shadow: 0 8px 28px rgba(11,23,48,.035); }
+    .project-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .project-icon { width: 46px; height: 46px; display: grid; place-items: center; background: var(--blue-2); color: var(--blue); border-radius: 14px; font-size: 1.25rem; flex: 0 0 auto; }
+    .status { display: inline-block; border-radius: 999px; padding: 5px 9px; font-size: .72rem; line-height: 1.4; font-weight: 800; background: #eef2f8; color: #43516a; }
+    .status.accepted { background: #e8f8ef; color: #187347; }
+    .status.review { background: #fff3dc; color: #8a5b05; }
+    .project-card h3 { color: var(--navy); font-size: 1.18rem; line-height: 1.35; margin: 18px 0 9px; }
+    .project-card p { color: var(--muted); font-size: .94rem; margin: 0 0 16px; }
+    .project-card .pill-list { margin-top: auto; padding-top: 4px; }
+    .result { margin: 0 0 15px; padding: 12px 14px; background: #f5f8ff; border-left: 3px solid var(--blue); border-radius: 0 10px 10px 0; color: #30476c; font-size: .9rem; }
+    .note { margin-top: 22px; color: var(--muted); font-size: .87rem; }
+    .research-list { display: grid; gap: 14px; }
+    .research-item { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: start; border: 1px solid var(--line); background: white; border-radius: 16px; padding: 22px; }
+    .research-item h3 { margin: 0 0 7px; color: var(--navy); font-size: 1.05rem; }
+    .research-item p { margin: 0; color: var(--muted); font-size: .93rem; }
+    .timeline { display: grid; gap: 18px; }
+    .timeline-item { display: grid; grid-template-columns: 180px 1fr; gap: 22px; padding: 24px; border: 1px solid var(--line); background: white; border-radius: 18px; }
+    .timeline-date { color: var(--blue); font-size: .84rem; font-weight: 800; }
+    .timeline-item h3 { margin: 0 0 5px; color: var(--navy); font-size: 1.08rem; }
+    .timeline-item .sub { color: var(--muted); font-size: .9rem; margin-bottom: 10px; }
+    .timeline-item ul { margin: 0; padding-left: 19px; color: #4f5d75; font-size: .92rem; }
+    .timeline-item li + li { margin-top: 5px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .skill-card { border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+    .skill-card h3 { margin: 0 0 13px; color: var(--navy); font-size: 1rem; }
+    .skill-card p { color: var(--muted); margin: 0; font-size: .92rem; }
+    .achievement-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .achievement { border: 1px solid var(--line); border-radius: 16px; padding: 22px; background: white; }
+    .achievement .emoji { font-size: 1.4rem; }
+    .achievement h3 { font-size: 1rem; color: var(--navy); margin: 10px 0 5px; }
+    .achievement p { color: var(--muted); font-size: .9rem; margin: 0; }
+    .contact { background: var(--navy); color: white; }
+    .contact .section-title { color: white !important; }
+    .contact .section-head p { color: #cbd6e9; }
+    .contact-box { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 30px; border: 1px solid rgba(255,255,255,.17); background: rgba(255,255,255,.06); border-radius: 22px; }
+    .contact-box h3 { margin: 0 0 6px; font-size: 1.35rem; }
+    .contact-box p { margin: 0; color: #cbd6e9; }
+    .contact .btn-primary { background: white; color: var(--navy); white-space: nowrap; }
+    footer { background: #071124; color: #aab7ce; padding: 22px 0; font-size: .85rem; }
+    footer .container { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+    .small-link { color: var(--blue); font-weight: 750; }
+    @media (max-width: 850px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+      .hero-card { max-width: 470px; }
+      .skills-grid, .achievement-grid { grid-template-columns: repeat(2,1fr); }
+      .nav-links { gap: 14px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+    }
+    @media (max-width: 620px) {
+      .container { width: min(100% - 28px, 1120px); }
+      .hero { padding: 66px 0 62px; }
+      section { padding: 62px 0; }
+      .cards, .about-grid, .skills-grid, .achievement-grid, .metrics { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 1fr; gap: 7px; }
+      .research-item { grid-template-columns: 1fr; }
+      .contact-box { align-items: flex-start; flex-direction: column; padding: 24px; }
+      .nav-links { display: none; }
+      .menu-btn { display: block; }
+      .nav-links.open { display: flex; position: absolute; top: 71px; left: 0; right: 0; padding: 18px 20px; background: white; border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; }
+      .nav-links.open a { display: block !important; padding: 7px 0; }
+      .nav-links.open .nav-cta { text-align: center; padding: 10px 14px; }
+      .project-card { padding: 21px; }
+    }
+  </style>
 </head>
 <body>
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="#">Komal Kumari</a>
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="menu">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-        <li class="nav-item"><a class="nav-link" href="#achievements">Achievements</a></li>
-        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
-    </div>
+  <div class="nav-wrap">
+    <nav class="container" aria-label="Main navigation">
+      <a class="brand" href="#home">Komal<span>.</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a><a href="#projects">Projects</a><a href="#research">Research</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a class="nav-cta" href="#contact">Contact</a>
+      </div>
+    </nav>
   </div>
-</nav>
 
-<!-- Hero -->
-<section class="hero d-flex align-items-center">
-  <div class="container text-center" data-aos="fade-up">
-    <h1 class="fw-bold">Hi, I'm Komal Kumari</h1>
-    <p class="lead">Aspiring Data scientist & Data Analyst || MERN Stack Developer</p>
-    <a href="#projects" class="btn btn-primary btn-lg mt-3">View My Work 🚀</a>
-  </div>
-</section>
+  <main>
+    <header class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Final-Year Computer Engineering Student</div>
+          <h1>Building thoughtful solutions with <span>AI &amp; research.</span></h1>
+          <p class="hero-copy">I’m Komal Kumari, a Computer Engineering student interested in Machine Learning, Generative AI, and applied research. I enjoy exploring how AI systems can become more useful, explainable, and reliable.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-outline" href="https://www.linkedin.com/in/komal-kumari-a10476289/" target="_blank" rel="noopener noreferrer">LinkedIn profile ↗</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Profile summary">
+          <div class="monogram">KK</div>
+          <h2>Komal Kumari</h2>
+          <p>Computer Engineering · Marwadi University</p>
+          <div class="hero-stat"><strong>9.48/10</strong><span>CGPA</span></div>
+          <div class="pill-list">
+            <span class="pill">AI/ML</span><span class="pill">Generative AI</span><span class="pill">Deep Learning</span><span class="pill">Research</span>
+          </div>
+        </aside>
+      </div>
+    </header>
 
-<!-- About -->
-<section id="about" class="section">
-  <div class="container" data-aos="fade-right">
-    <h2 class="section-title">About Me</h2>
-    <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8;">
-      Computer Engineering student with hands-on experience in Data Analysis, Full-Stack Development, and AI technologies. 
-      Completed internships and built real-world projects using Python, Machine Learning, and modern web frameworks. 
-      Published research work . 
-      Passionate about AI and aspire to work on innovative projects that leverage artificial intelligence to solve complex problems. 
-      Love exploring emerging technologies and creating impactful solutions that make a difference! 💡
-    </p>
-  </div>
-</section>
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">About me</span>
+          <h2 class="section-title">Curious about the “why” behind the model.</h2>
+          <p>I combine hands-on project work with research-oriented experimentation, with a growing focus on model performance, explainability, privacy, and real-world impact.</p>
+        </div>
+        <div class="about-grid">
+          <article class="panel">
+            <h3>What I’m exploring</h3>
+            <p>Machine learning and deep learning, NLP, deepfake detection, mental-health text analysis, and privacy-preserving AI. I’m interested in both building systems and understanding how they behave.</p>
+            <div class="pill-list"><span class="pill">Applied AI</span><span class="pill">NLP</span><span class="pill">Trustworthy AI</span><span class="pill">Federated Learning</span></div>
+          </article>
+          <article class="panel">
+            <h3>What I bring</h3>
+            <p>A strong academic foundation, project-based learning, research experience, and a willingness to test ideas, evaluate results, and keep improving. I’m looking to grow with teams solving meaningful technical problems.</p>
+            <div class="pill-list"><span class="pill">Experimentation</span><span class="pill">Problem-solving</span><span class="pill">Analytical thinking</span></div>
+          </article>
+        </div>
+        <div class="metrics">
+          <div class="metric"><strong>9.48/10</strong><span>Academic CGPA</span></div>
+          <div class="metric"><strong>AI/ML</strong><span>Primary technical focus</span></div>
+          <div class="metric"><strong>Research</strong><span>Projects and paper submissions</span></div>
+        </div>
+      </div>
+    </section>
 
-<!-- Technical Skills -->
-<section id="skills" class="section bg-light">
-  <div class="container">
-    <h2 class="section-title" data-aos="fade-up">Technical Skills</h2>
-    <div class="row g-4">
-      <div class="col-6 col-md-3" data-aos="zoom-in"><div class="skill">🐍 Python</div></div>
-      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="50"><div class="skill">☕ Java</div></div>
-      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100"><div class="skill">🤖 Machine Learning</div></div>
-      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="150"><div class="skill">📊 Data Analysis</div></div>
-      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200"><div class="skill">⚛️ MERN Stack</div></div>
-      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="250"><div class="skill">🅰️ MEAN Stack</div></div>
-      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="300"><div class="skill">📱 Android Dev</div></div>
-      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="350"><div class="skill">🗄️ SQL</div></div>
-      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="400"><div class="skill">💚 Node.js</div></div>
-      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="450"><div class="skill">🍃 MongoDB</div></div>
-      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="500"><div class="skill">🎨 HTML/CSS/JS</div></div>
-      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="550"><div class="skill">🔐 Cryptography</div></div>
-    </div>
-  </div>
-</section>
+    <section class="section-soft" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Selected work</span>
+          <h2 class="section-title">Projects &amp; experiments</h2>
+          <p>A selection of AI/ML work focused on detection, recommendations, and responsible AI. Results below reflect reported experimental setups, not universal performance guarantees.</p>
+        </div>
+        <div class="cards">
+          <article class="project-card">
+            <div class="project-top"><div class="project-icon">🧠</div><span class="status review">Research · Revision / review status to verify</span></div>
+            <h3>MentalBERT-LIWC: Depression Detection</h3>
+            <p>Explored transformer-based text analysis and linguistic features for depression detection, with explainability methods to help interpret model predictions.</p>
+            <div class="result"><strong>Reported results:</strong> 82.18% accuracy · 0.9137 AUC</div>
+            <div class="pill-list"><span class="pill">NLP</span><span class="pill">Transformers</span><span class="pill">Explainable AI</span><span class="pill">LIME / SHAP</span></div>
+          </article>
+          <article class="project-card">
+            <div class="project-top"><div class="project-icon">🛡️</div><span class="status review">Research · Under review</span></div>
+            <h3>FedDeepGuard: Federated Deepfake Detection</h3>
+            <p>Explored a federated deepfake detection approach combining visual feature representations, with attention to performance across non-IID data settings and robustness.</p>
+            <div class="result"><strong>Reported result:</strong> F1-score 0.9433 ± 0.0043 in the stated Non-IID experimental setting.</div>
+            <div class="pill-list"><span class="pill">Federated Learning</span><span class="pill">ViT</span><span class="pill">RGB / ELA / DCT</span><span class="pill">Robustness</span></div>
+          </article>
+          <article class="project-card">
+            <div class="project-top"><div class="project-icon">🎙️</div><span class="status">Research project</span></div>
+            <h3>Audio Deepfake Detection</h3>
+            <p>Developed an audio classification approach combining CNN, BiLSTM, and multi-head attention, using MFCC features for speech deepfake detection experiments.</p>
+            <div class="result"><strong>Reported results:</strong> 85.50% accuracy · 0.9122 F1-score · 0.9639 AUC · 9.10% EER</div>
+            <div class="pill-list"><span class="pill">Deep Learning</span><span class="pill">CNN</span><span class="pill">BiLSTM</span><span class="pill">Attention</span></div>
+          </article>
+          <article class="project-card">
+            <div class="project-top"><div class="project-icon">🔐</div><span class="status">Research project</span></div>
+            <h3>Privacy-Preserving Federated Quantum Recommendation</h3>
+            <p>Investigated quantum machine learning and privacy-preserving techniques for federated recommendation using MovieLens-100K, including secure aggregation concepts and differential privacy.</p>
+            <div class="result"><strong>Reported results:</strong> RMSE ~1.0861 · HitRate@10 ~0.4665</div>
+            <div class="pill-list"><span class="pill">Quantum ML</span><span class="pill">Federated Learning</span><span class="pill">PennyLane / Qiskit</span><span class="pill">Privacy</span></div>
+          </article>
+          <article class="project-card">
+            <div class="project-top"><div class="project-icon">📊</div><span class="status">Data analytics project</span></div>
+            <h3>Customer Churn Analysis &amp; Prediction</h3>
+            <p>Analyzed customer churn data and explored predictive modeling to identify patterns that can support customer-retention decisions.</p>
+            <div class="pill-list"><span class="pill">Python</span><span class="pill">Data Analysis</span><span class="pill">Machine Learning</span></div>
+          </article>
+          <article class="project-card">
+            <div class="project-top"><div class="project-icon">💼</div><span class="status">Full-stack project</span></div>
+            <h3>CareerPilot: Placement &amp; Job Management</h3>
+            <p>A placement and job management platform built with a Java/Spring Boot backend and React frontend, designed to help manage opportunities and applications.</p>
+            <div class="pill-list"><span class="pill">Java 17</span><span class="pill">Spring Boot</span><span class="pill">React</span><span class="pill">PostgreSQL / H2</span></div>
+          </article>
+        </div>
+        <p class="note">Project links are intentionally not guessed. Add the exact public GitHub or demo URL to each card before publishing if you want clickable project links.</p>
+      </div>
+    </section>
 
-<!-- Soft Skills -->
-<section id="soft-skills" class="section">
-  <div class="container">
-    <h2 class="section-title" data-aos="fade-up">Soft Skills</h2>
-    <div class="row g-4">
-      <div class="col-6 col-md-3" data-aos="zoom-in"><div class="skill">💬 Communication</div></div>
-      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="50"><div class="skill">🤝 Teamwork</div></div>
-      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100"><div class="skill">🧩 Problem Solving</div></div>
-      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="150"><div class="skill">⏰ Time Management</div></div>
-      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200"><div class="skill">🎯 Leadership</div></div>
-      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="250"><div class="skill">💡 Creative Thinking</div></div>
-      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="300"><div class="skill">🔄 Adaptability</div></div>
-      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="350"><div class="skill">📝 Documentation</div></div>
-    </div>
-  </div>
-</section>
+    <section id="research">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Research &amp; writing</span>
+          <h2 class="section-title">Research with clear status labels</h2>
+          <p>I’m interested in AI systems that are more explainable, privacy-aware, and robust. Research statuses are kept separate so readers can distinguish accepted work from work still under review.</p>
+        </div>
+        <div class="research-list">
+          <article class="research-item">
+            <div><h3>“Privacy Preservation in AI Networking Systems”</h3><p>Co-authored abstract associated with Bentham. Listed as accepted abstract based on the information provided.</p></div>
+            <span class="status accepted">Abstract accepted</span>
+          </article>
+          <article class="research-item">
+            <div><h3>IOCCH 2026 — accepted abstract</h3><p>Abstract accepted for the conference scheduled for 17–19 November 2026 (online). Confirm the exact title and author listing before adding a public paper link.</p></div>
+            <span class="status accepted">Abstract accepted</span>
+          </article>
+          <article class="research-item">
+            <div><h3>FedDeepGuard</h3><p>Federated deepfake detection research. The manuscript is reported as under review.</p></div>
+            <span class="status review">Under review</span>
+          </article>
+          <article class="research-item">
+            <div><h3>MentalBERT-LIWC: Depression Detection</h3><p>Research manuscript associated with a Sciforum / MDPI submission and revision context. Verify the current editorial status before publishing; do not label it accepted unless formally accepted.</p></div>
+            <span class="status review">Revision / status to verify</span>
+          </article>
+        </div>
+        <p class="note">Only public, shareable paper or conference links should be added here. Do not upload confidential reviewer correspondence or unpublished manuscript files unless sharing is permitted.</p>
+      </div>
+    </section>
 
-<!-- Projects -->
-<section id="projects" class="section">
-  <div class="container">
-    <h2 class="section-title" data-aos="fade-up">Projects</h2>
-    <div class="row g-4">
+    <section class="section-soft" id="experience">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Experience</span>
+          <h2 class="section-title">Learning through structured programs</h2>
+          <p>Internship and training experience across AI, machine learning, data analytics, and development tools.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-date">May 2026 – Ongoing (verify current status)</div>
+            <div><h3>AICTE–Cisco Virtual Internship — AI</h3><div class="sub">Virtual internship</div><ul><li>Completed learning activities in Modern AI, Customer Review Analysis, and Data Analytics.</li><li>Participated in Cisco leader sessions and worked toward a final-phase project addressing an industry problem.</li></ul></div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">Aug – Sep 2026</div>
+            <div><h3>Machine Learning &amp; Applied AI Intern — IBM SkillsBuild &amp; AICTE</h3><div class="sub">Six-week learning program</div><ul><li>Studied machine learning, deep learning, and supervised, unsupervised, and reinforcement learning concepts.</li><li>Gained exposure to IBM watsonx / Watson Studio and Teachable Machine.</li></ul></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      <!-- Project -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Technical toolkit</span>
+          <h2 class="section-title">Skills I’m building and applying</h2>
+          <p>A practical toolkit for AI/ML experimentation, data work, and software development. Skill depth varies by tool and project.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card"><h3>Programming &amp; Data</h3><p>Python, Java, C, SQL, NumPy, Pandas, data analysis</p></article>
+          <article class="skill-card"><h3>AI &amp; Machine Learning</h3><p>Machine Learning, Deep Learning, NLP, Generative AI, model evaluation</p></article>
+          <article class="skill-card"><h3>Frameworks &amp; Libraries</h3><p>PyTorch, Scikit-learn, Transformers, ML.NET</p></article>
+          <article class="skill-card"><h3>Research Methods</h3><p>Experimental evaluation, explainability, LIME, SHAP, federated learning concepts</p></article>
+          <article class="skill-card"><h3>Development Tools</h3><p>Git, GitHub, Docker, Jenkins, Maven, Spring Boot, React</p></article>
+          <article class="skill-card"><h3>Analytics &amp; Visualization</h3><p>Tableau, Excel, exploratory data analysis, data storytelling</p></article>
+        </div>
+      </div>
+    </section>
 
-      <div class="col-md-4" data-aos="fade-up">
-        <div class="project-card">
-          <img src="img/project_2.png" alt="Customer Churn Analysis">
-          <div class="p-3">
-            <h5>Smart Expense Tracker </h5>
-            <p class="text-muted">Built with ADO.NET and SQL Server, enhanced using ML.NET for expense forecasting, anomaly detection, and insights.</p>
-            <div class="project-links">
-              <a href="https://github.com/0Komal01/Smart-Expense-Tracker-ADO.NET_ML.NET" target="_blank"><i class="bi bi-github"></i> GitHub</a>
-            </div>
+    <section class="section-soft" id="achievements">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Beyond the code</span>
+          <h2 class="section-title">Achievements &amp; community</h2>
+          <p>Academic, extracurricular, and coordination experiences that reflect teamwork and commitment beyond technical projects.</p>
+        </div>
+        <div class="achievement-grid">
+          <article class="achievement"><div class="emoji">🏅</div><h3>Sports achievements</h3><p>Women’s Kho Kho winner at MU Fest 2026 and runner-up in 2025; 400m event winner in 2024.</p></article>
+          <article class="achievement"><div class="emoji">🎤</div><h3>Campus involvement</h3><p>Coordinator for MU Tech Hunt / eMULate activities.</p></article>
+          <article class="achievement"><div class="emoji">🌟</div><h3>Personal achievements</h3><p>Miss MU 2026 — 2nd Runner-Up; art exhibition 2nd Runner-Up; anti-ragging poster competition winner.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Let’s connect</span>
+          <h2 class="section-title">Open to learning, research, and AI/ML opportunities.</h2>
+          <p>I’m interested in AI/ML Engineering, Applied AI, and AI Research opportunities where I can contribute, collaborate, and keep learning.</p>
+        </div>
+        <div class="contact-box">
+          <div><h3>Komal Kumari</h3><p>Final-Year Computer Engineering Student · Marwadi University</p></div>
+          <div class="hero-actions" style="margin-top:0">
+            <a class="btn btn-primary" href="https://www.linkedin.com/in/komal-kumari-a10476289/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a>
+            <a class="btn btn-outline" href="https://github.com/0Komal01" target="_blank" rel="noopener noreferrer">Explore GitHub ↗</a>
           </div>
         </div>
       </div>
-
-      <div class="col-md-4" data-aos="fade-up">
-        <div class="project-card">
-          <img src="img/project_1.png" alt="Customer Churn Analysis">
-          <div class="p-3">
-            <h5>Customer Churn Analysis & Predictions</h5>
-            <p class="text-muted">EDA & ML model to predict churn using Python, Pandas, and Scikit-learn.</p>
-            <div class="project-links">
-              <a href="https://github.com/0Komal01/Customer-Churn-Analysis-and-Prediction" target="_blank"><i class="bi bi-github"></i> GitHub</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4" data-aos="fade-up">
-        <div class="project-card">
-          <img src="img/project_3.png" alt="Customer Onboarding Analysis">
-          <div class="p-3">
-            <h5>Customer Onboarding Analysis</h5>
-            <p class="text-muted">Studies customer onboarding and marketing behavior using signup data to support better business growth decisions.</p>
-            <div class="project-links">
-              <a href="https://github.com/0Komal01/customer-onboarding-analysis" target="_blank"><i class="bi bi-github"></i> GitHub</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4" data-aos="fade-up">
-        <div class="project-card">
-          <img src="img/project_4.png" alt=">Real E-State">
-          <div class="p-3">
-            <h5>Real E-State</h5>
-            <p class="text-muted">Predicts real estate prices using simple linear regression and data visualization techniques.</p>
-            <div class="project-links">
-              <a href="https://github.com/0Komal01/Simple-Linear-Regression-on-Real-Estate-Data" target="_blank"><i class="bi bi-github"></i> GitHub</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4" data-aos="fade-up">
-        <div class="project-card">
-          <img src="img/project_5.png" alt="FunLearn Kids">
-          <div class="p-3">
-            <h5>Kids App : FunLearn Kids - ABC & 123</h5>
-            <p class="text-muted">Interactive Android learning app for children (ages 3–7) focused on alphabets and numbers using multisensory methods.</p>
-            <div class="project-links">
-              <a href="https://github.com/0Komal01/FunLearnKids-Android" target="_blank"><i class="bi bi-github"></i> GitHub</a>
-              <a href="https://play.google.com/store/apps/details?id=com.marwadiuniversity.abckids&pcampaignid=web_share" target="_blank"><i class="bi bi-google-play"></i> Play Store</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="project-card">
-          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500" alt="QuesBase Platform">
-          <div class="p-3">
-            <h5>QuesBase – GATE Platform</h5>
-            <p class="text-muted">Full-stack MERN exam platform with real-time assessment features.</p>
-            <div class="project-links">
-              <a href="https://github.com/0Komal01/quesbase-mern" target="_blank"><i class="bi bi-github"></i> GitHub</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="project-card">
-          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500" alt="Food Ordering App">
-          <div class="p-3">
-            <h5>React Food Ordering App</h5>
-            <p class="text-muted">Online food ordering system with cart management and checkout.</p>
-            <div class="project-links">
-              <a href="https://github.com/0Komal01/react-food-ordering" target="_blank"><i class="bi bi-github"></i> GitHub</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="project-card">
-          <img src="img/project_6.png" alt="School Website">
-          <div class="p-3">
-            <h5>School Website - Frontend</h5>
-            <p class="text-muted">A responsive front-end website for a fictional school, built using HTML, CSS, JavaScript, and Bootstrap.</p>
-            <div class="project-links">
-              <a href="https://github.com/0Komal01/react-food-ordering" target="_blank"><i class="bi bi-github"></i> GitHub</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-    </div>
-  </div>
-</section>
-
-<!-- Achievements -->
-<section id="achievements" class="section bg-light">
-  <div class="container">
-    <h2 class="section-title" data-aos="fade-up">Achievements</h2>
-    <div class="row g-4">
-      
-      <div class="col-md-4" data-aos="fade-up">
-        <div class="achievement-card">
-          <span class="achievement-icon">📄</span>
-          <h5>Research Publication</h5>
-          <p>Published research paper on "Blockchain-Inspired Hybrid Privacy-Preserving Framework for Smart Cities"</p>
-        </div>
-      </div>
-
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="achievement-card">
-          <span class="achievement-icon">🏆</span>
-          <h5>Poster Presentation</h5>
-          <p>3rd Place, College-Level Poster Presentation Competition, National Mathematics Day (22 Dec 2023)</p>
-        </div>
-      </div>
-
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-        <div class="achievement-card">
-          <span class="achievement-icon">📜</span>
-          <h5>Certifications</h5>
-          <p>Completed 3+ professional certifications in Data Science , Data Analysis and ML</p>
-        </div>
-      </div>
-
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="achievement-card">
-          <span class="achievement-icon">⭐</span>
-          <h5>Sports Fest 2024</h5>
-          <p>Won 1st place in 400 meters running during MU Fest 2024.</p>
-        </div>
-      </div>
-
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-        <div class="achievement-card">
-          <span class="achievement-icon">⭐</span>
-          <h5>Sports Fest 2025</h5>
-          <p>Achieved 1st Runner-Up position in Women’s Kho-Kho</p>
-        </div>
-      </div>
-
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
-        <div class="achievement-card">
-  <span class="achievement-icon">💡</span>
-  <h5>Technical Event Participation</h5>
-  <p>Actively participated in college-organized technical events such as <strong>HerTech</strong>, <strong>Technical Hunt</strong>, and other technology-focused competitions.</p>
-</div>
-
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Education -->
-<section id="education" class="section bg-light">
-  <div class="container" data-aos="fade-right">
-    <h2 class="section-title">Education</h2>
-    <div class="experience-card">
-      <h5>🎓 Bachelor of Engineering in Computer Engineering</h5>
-      <p class="text-muted mb-1"><strong>Marwadi University</strong></p><br>
-      <p class="text-muted">2023 - 2027 <br> CGPA: 9.48/10 (Currently) </p>
-    </div>
-    <div class="experience-card">
-      <h5>🏫 Higher Secondary Education (12th)</h5>
-      <p class="text-muted mb-1"><strong>Kendriya Vidyalaya Rajkot</strong></p><br>
-      <p class="text-muted">2021 - 2022 <br> Percentage: 80% </p>
-    </div>
-    <div class="experience-card">
-      <h5>🏫 Secondary Education (10th)</h5>
-      <p class="text-muted mb-1"><strong>Kendriya Vidyalaya Rajkot</strong></p><br>
-      <p class="text-muted">2019 - 2020 <br> Percentage: 81%  </p>
-    </div>
-  </div>
-</section>
-
-<!-- Experience -->
-<section id="experience" class="section">
-  <div class="container" data-aos="fade-right">
-    <h2 class="section-title">Experience</h2>
-    <div class="experience-card">
-      <h5>Data Analysis Intern – SaiKet Systems</h5>
-      <p class="text-muted">Performed exploratory data analysis and created insightful visualizations using Python, Pandas, and Matplotlib 📈</p>
-    </div>
-    <div class="experience-card">
-      <h5>MERN Stack Intern – BrainyBeam Technologies</h5>
-      <p class="text-muted">Developed full-stack web applications using React, Node.js, Express, and MongoDB 🌐</p>
-    </div>
-  </div>
-</section>
-
-<!-- Contact -->
-<section id="contact" class="section text-center">
-  <div class="container" data-aos="zoom-in">
-    <h2 class="section-title">Get In Touch</h2>
-    <div class="row justify-content-center mt-4">
-      <div class="col-md-8">
-        <div class="contact-item">
-          <i class="bi bi-envelope-fill"></i>
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=komal123ydv456@gmail.com" target="_blank">Gmail</a>
-        </div>
-        <div class="contact-item">
-          <i class="bi bi-github"></i>
-          <a href="https://github.com/0Komal01/" target="_blank">github</a>
-        </div>
-        <div class="contact-item">
-          <i class="bi bi-linkedin"></i>
-          <a href="https://www.linkedin.com/in/komal-kumari-a10476289/" target="_blank">linkedin</a>
-        </div>
-        <div class="contact-item">
-          <i class="bi bi-code-slash"></i>
-          <a href="https://leetcode.com/u/01Komal_01/" target="_blank">LeetCode</a>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="text-center">
-  <small>Made with 💖 by Komal Kumari © 2026</small>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 900,
-    once: true,
-    offset: 100
-  });
-</script>
+    </section>
+  </main>
+  <footer><div class="container"><span>© <span id="year"></span> Komal Kumari</span><span>Designed for clarity, evidence, and responsible AI.</span></div></footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    menuBtn.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(isOpen));
+    });
+    navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+    }));
+  </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
