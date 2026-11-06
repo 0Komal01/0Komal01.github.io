@@ -1,455 +1,347 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0b1730" />
-  <meta name="description" content="Komal Kumari — final-year Computer Engineering student focused on AI/ML, Generative AI, and applied research." />
-  <title>Komal Kumari | AI/ML & Research Portfolio</title>
-  <style>
-    :root {
-      --navy: #0a1022;
-      --navy-2: #172344;
-      --blue: #7c8cff;
-      --blue-2: #eaf1ff;
-      --ink: #edf1ff;
-      --muted: #b0bbd3;
-      --line: #34415f;
-      --white: #0b1224;
-      --soft: #111a30;
-      --shadow: 0 18px 50px rgba(11, 23, 48, .09);
-      --radius: 20px;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
-    body { margin: 0; color: var(--ink); background: #0b1224; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.65; }
-    a { color: inherit; text-decoration: none; }
-    a:focus-visible, button:focus-visible { outline: 3px solid #8bb3ff; outline-offset: 3px; }
-    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
-    .nav-wrap { position: sticky; top: 0; z-index: 20; background: rgba(10,16,34,.94); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(225,232,242,.85); }
-    nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .brand { font-weight: 850; letter-spacing: -.04em; color: #edf1ff; font-size: 1.1rem; }
-    .brand span { color: var(--blue); }
-    .nav-links { display: flex; align-items: center; gap: 24px; font-size: .92rem; color: #c0cbe1; }
-    .nav-links a:hover { color: var(--blue); }
-    .nav-cta { padding: 10px 16px; background: var(--navy); color: white !important; border-radius: 999px; font-weight: 700; }
-    .menu-btn { display: none; border: 1px solid var(--line); background: #17213a; border-radius: 10px; padding: 8px 11px; font-size: 1.1rem; }
-    .hero { background: radial-gradient(circle at 82% 12%, rgba(52,120,246,.22), transparent 28%), linear-gradient(135deg, #0b1730 0%, #10264b 65%, #15396a 100%); color: white; padding: 92px 0 88px; overflow: hidden; }
-    .hero-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 60px; align-items: center; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: 7px 13px; color: #d7e5ff; font-size: .82rem; font-weight: 650; letter-spacing: .02em; }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: #58e0c1; box-shadow: 0 0 0 4px rgba(112,225,180,.13); }
-    h1 { font-size: clamp(2.7rem, 6vw, 4.8rem); line-height: 1.04; letter-spacing: -.065em; margin: 22px 0 20px; }
-    .hero h1 span { color: #9b9cff; }
-    .hero-copy { max-width: 680px; color: #d4def0; font-size: 1.1rem; margin: 0; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 9px; padding: 12px 18px; border-radius: 12px; font-weight: 750; border: 1px solid transparent; transition: transform .2s, background .2s; }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: #17213a; color: #edf1ff; }
-    .btn-outline { border-color: rgba(255,255,255,.35); color: white; }
-    .hero-card { padding: 28px; border-radius: 24px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); box-shadow: 0 22px 60px rgba(0,0,0,.14); }
-    .hero-card .monogram { width: 76px; height: 76px; border-radius: 22px; background: linear-gradient(145deg,#9b9cff,#38cdb5); display: grid; place-items: center; color: white; font-size: 1.8rem; font-weight: 850; letter-spacing: -.06em; margin-bottom: 22px; }
-    .hero-card h2 { font-size: 1.25rem; margin: 0 0 5px; }
-    .hero-card p { margin: 0; color: #cfdaee; font-size: .94rem; }
-    .hero-stat { border-top: 1px solid rgba(255,255,255,.16); margin-top: 22px; padding-top: 18px; display: flex; align-items: baseline; gap: 10px; }
-    .hero-stat strong { font-size: 1.9rem; letter-spacing: -.05em; color: white; }
-    .hero-stat span { color: #cfdaee; font-size: .88rem; }
-    section { padding: 82px 0; }
-    .section-head { max-width: 720px; margin-bottom: 34px; }
-    .kicker { text-transform: uppercase; letter-spacing: .13em; color: var(--blue); font-size: .76rem; font-weight: 850; }
-    h2.section-title { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.12; letter-spacing: -.05em; margin: 10px 0 12px; color: #edf1ff; }
-    .section-head p { color: var(--muted); margin: 0; font-size: 1.02rem; }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-    .panel { border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; background: #17213a; }
-    .panel h3 { margin: 0 0 10px; color: #edf1ff; font-size: 1.08rem; }
-    .panel p { color: var(--muted); margin: 0; }
-    .pill-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 16px; }
-    .pill { padding: 7px 11px; background: #29385f; color: #dce6ff; border: 1px solid #435582; border-radius: 999px; font-size: .84rem; font-weight: 700; }
-    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
-    .metric { padding: 22px; border-radius: 16px; background: var(--soft); border: 1px solid var(--line); }
-    .metric strong { display: block; color: #edf1ff; font-size: 1.7rem; letter-spacing: -.04em; }
-    .metric span { color: var(--muted); font-size: .88rem; }
-    .section-soft { background: #0e172b; }
-    .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-    .project-card { border: 1px solid var(--line); background: #17213a; border-radius: var(--radius); padding: 25px; display: flex; flex-direction: column; min-height: 100%; box-shadow: 0 8px 28px rgba(11,23,48,.035); }
-    .project-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
-    .project-icon { width: 46px; height: 46px; display: grid; place-items: center; background: var(--blue-2); color: var(--blue); border-radius: 14px; font-size: 1.25rem; flex: 0 0 auto; }
-    .status { display: inline-block; border-radius: 999px; padding: 5px 9px; font-size: .72rem; line-height: 1.4; font-weight: 800; background: #29385f; color: #e0e8ff; border: 1px solid #435582; }
-    .status.accepted { background: #173c3b; color: #9ce7c1; }
-    .status.review { background: #40351f; color: #f3d18b; }
-    .project-card h3 { color: #edf1ff; font-size: 1.18rem; line-height: 1.35; margin: 18px 0 9px; }
-    .project-card p { color: var(--muted); font-size: .94rem; margin: 0 0 16px; }
-    .project-card .pill-list { margin-top: auto; padding-top: 4px; }
-    .result { margin: 0 0 15px; padding: 12px 14px; background: #202b48; border-left: 3px solid var(--blue); border-radius: 0 10px 10px 0; color: #d6e0f6; font-size: .9rem; }
-    .note { margin-top: 22px; color: var(--muted); font-size: .87rem; }
-    .research-list { display: grid; gap: 14px; }
-    .research-item { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: start; border: 1px solid var(--line); background: #17213a; border-radius: 16px; padding: 22px; }
-    .research-item h3 { margin: 0 0 7px; color: #edf1ff; font-size: 1.05rem; }
-    .research-item p { margin: 0; color: var(--muted); font-size: .93rem; }
-    .timeline { display: grid; gap: 18px; }
-    .timeline-item { display: grid; grid-template-columns: 180px 1fr; gap: 22px; padding: 24px; border: 1px solid var(--line); background: #17213a; border-radius: 18px; }
-    .timeline-date { color: var(--blue); font-size: .84rem; font-weight: 800; }
-    .timeline-item h3 { margin: 0 0 5px; color: #edf1ff; font-size: 1.08rem; }
-    .timeline-item .sub { color: var(--muted); font-size: .9rem; margin-bottom: 10px; }
-    .timeline-item ul { margin: 0; padding-left: 19px; color: #c4d0e7; font-size: .92rem; line-height: 1.75; }
-    .timeline-item li + li { margin-top: 5px; }
-    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .skill-card { border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
-    .skill-card h3 { margin: 0 0 13px; color: #edf1ff; font-size: 1rem; }
-    .skill-card p { color: var(--muted); margin: 0; font-size: .92rem; }
-    .achievement-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .achievement { border: 1px solid var(--line); border-radius: 16px; padding: 22px; background: #17213a; }
-    .achievement .emoji { font-size: 1.4rem; }
-    .achievement h3 { font-size: 1rem; color: #edf1ff; margin: 10px 0 5px; }
-    .achievement p { color: var(--muted); font-size: .9rem; margin: 0; }
-    .contact { background: var(--navy); color: white; }
-    .contact .section-title { color: white !important; }
-    .contact .section-head p { color: #cbd6e9; }
-    .contact-box { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 30px; border: 1px solid rgba(255,255,255,.17); background: rgba(255,255,255,.04); border-radius: 22px; }
-    .contact-box h3 { margin: 0 0 6px; font-size: 1.35rem; }
-    .contact-box p { margin: 0; color: #cbd6e9; }
-    .contact .btn-primary { background: #17213a; color: #edf1ff; white-space: nowrap; }
-    footer { background: #071124; color: #aab7ce; padding: 22px 0; font-size: .85rem; }
-    footer .container { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
-    .small-link { color: var(--blue); font-weight: 750; }
-    .nav-tools { display: flex; align-items: center; gap: 10px; }
-    .theme-btn { border: 1px solid #52617f; background: #1b2946; color: #f3f6ff; border-radius: 999px; padding: 9px 13px; font: inherit; font-size: .82rem; font-weight: 750; cursor: pointer; white-space: nowrap; }
-    .project-links { margin: 0 0 12px !important; }
-    .project-link { display: inline-flex; padding: 8px 12px; border-radius: 10px; background: #173e49; color: #9ce9dc; font-size: .86rem; font-weight: 800; border: 1px solid #2c6b71; }
-    .project-link:hover { background: #20545a; }
-    /* Light theme: warm ivory canvas with deep ink, teal and indigo accents. */
-    body.light { --blue: #4f46e5; --blue-2: #e8eaff; --ink: #1c2540; --muted: #59647b; --line: #d9dfeb; --soft: #f0f3fa; background: #f4f6fb; color: #1c2540; }
-    body.light .nav-wrap { background: rgba(248,250,255,.94); border-bottom-color: #dce2ee; }
-    body.light .brand, body.light h2.section-title, body.light .panel h3, body.light .metric strong, body.light .project-card h3, body.light .research-item h3, body.light .timeline-item h3, body.light .skill-card h3, body.light .achievement h3 { color: #202944; }
-    body.light .nav-links { color: #4e5b75; }
-    body.light .nav-cta { background: #25345c; color: #fff !important; }
-    body.light .theme-btn { background: #e8eaff; border-color: #c9cff5; color: #3730a3; }
-    body.light .menu-btn { background: #edf0fb; color: #26345a; }
-    body.light .panel, body.light .project-card, body.light .research-item, body.light .timeline-item, body.light .achievement { background: #ffffff; }
-    body.light .metric { background: #e9edf8; }
-    body.light .section-soft { background: #e9edf6; }
-    body.light .pill { background: #e7eaff; color: #3730a3; }
-    body.light .project-icon { background: #e7eaff; color: #4f46e5; }
-    body.light .status { background: #edf0f7; color: #48536c; }
-    body.light .status.accepted { background: #d9f7eb; color: #17664b; }
-    body.light .status.review { background: #fff0cf; color: #80550a; }
-    body.light .result { background: #eef2ff; color: #344064; border-left-color: #6366f1; }
-    body.light .timeline-item ul { color: #46536c; }
-    body.light .contact { background: #202b4c; }
-    body.light footer { background: #141e38; }
-    body.light .nav-links.open { background: #fff; }
-    body.light .project-link { background: #d8f7f0; color: #115e59; border-color: #a5e5d9; }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
-    @media (max-width: 850px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
-      .hero-card { max-width: 470px; }
-      .skills-grid, .achievement-grid { grid-template-columns: repeat(2,1fr); }
-      .nav-links { gap: 14px; }
-      .nav-links a:not(.nav-cta) { display: none; }
-    }
-    @media (max-width: 620px) {
-      .container { width: min(100% - 28px, 1120px); }
-      .hero { padding: 66px 0 62px; }
-      section { padding: 62px 0; }
-      .cards, .about-grid, .skills-grid, .achievement-grid, .metrics { grid-template-columns: 1fr; }
-      .timeline-item { grid-template-columns: 1fr; gap: 7px; }
-      .research-item { grid-template-columns: 1fr; }
-      .contact-box { align-items: flex-start; flex-direction: column; padding: 24px; }
-      .nav-links { display: none; }
-      .menu-btn { display: block; }
-      .theme-btn { padding: 8px 10px; }
-      .nav-links.open { display: flex; position: absolute; top: 71px; left: 0; right: 0; padding: 18px 20px; background: #17213a; border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; }
-      .nav-links.open a { display: block !important; padding: 7px 0; }
-      .nav-links.open .nav-cta { text-align: center; padding: 10px 14px; }
-      .project-card { padding: 21px; }
-    }
-  
-/* Dark-mode contrast fix for skill/topic pills */
-[data-theme="dark"] .tag,
-[data-theme="dark"] .pill,
-[data-theme="dark"] .chip,
-[data-theme="dark"] .badge,
-body.dark .tag,
-body.dark .pill,
-body.dark .chip,
-body.dark .badge {
-  background: #26385d !important;
-  color: #f1f5ff !important;
-  border: 1px solid #526b9a !important;
-}
-
-
-/* Dark-theme readability fixes for experience cards and supporting text */
-body:not(.light) .timeline-item { background: #17213a; border-color: #354666; }
-body:not(.light) .timeline-item ul { color: #c4d0e7 !important; }
-body:not(.light) .timeline-item .sub { color: #b9c8e3 !important; }
-body:not(.light) .timeline-date { color: #a5b4fc !important; }
-body:not(.light) .timeline-item li::marker { color: #93a8d4; }
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#050816">
+<meta name="description" content="Komal Kumari — final-year Computer Engineering student focused on AI/ML, Generative AI, Explainable AI, Federated Learning and applied research.">
+<meta property="og:title" content="Komal Kumari | AI/ML & Research Portfolio">
+<meta property="og:description" content="Building intelligent solutions through AI & research.">
+<title>Komal Kumari | AI/ML & Research Portfolio</title>
+<style>
+:root{--bg:#050816;--ink:#eaf0ff;--mut:#9fb0d0;--b:#4f7cff;--v:#8b5cff;--c:#22d3ee;--line:rgba(140,160,255,.16);--glass:rgba(16,24,52,.55);color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Space Grotesk",Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65;overflow-x:hidden;padding-top:env(safe-area-inset-top,0px)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(500px circle at var(--mx,70%) var(--my,20%),rgba(99,102,241,.16),transparent 60%),radial-gradient(900px 500px at 10% 90%,rgba(34,211,238,.07),transparent 60%)}
+a{color:inherit;text-decoration:none}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--c);outline-offset:3px}
+main,footer{position:relative;z-index:1}
+.wrap{width:min(1120px,calc(100% - 36px));margin:0 auto}
+section{padding:96px 0;position:relative}
+.k{font:700 .75rem/1 monospace;letter-spacing:.22em;text-transform:uppercase;color:var(--c)}
+h2{font-size:clamp(2rem,4.6vw,3.3rem);line-height:1.08;letter-spacing:-.04em;margin:12px 0 14px}
+.lead{color:var(--mut);max-width:680px;margin:0 0 36px}
+.grad{background:linear-gradient(100deg,#7aa2ff,#a78bfa 50%,#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent}
+/* nav */
+.nav{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:6px;padding:7px 8px 7px 18px;border-radius:999px;background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);box-shadow:0 10px 40px rgba(0,0,0,.4);max-width:calc(100% - 20px)}
+.logo{font-weight:800;margin-right:8px}.logo i{color:var(--c);font-style:normal}
+.nav ul{display:flex;gap:2px;list-style:none;margin:0;padding:0}
+.nav a.l{display:block;padding:8px 12px;border-radius:999px;font-size:.84rem;color:var(--mut);transition:.25s}
+.nav a.l:hover{color:#fff;background:rgba(120,140,255,.14)}
+.nav a.l.on{color:#fff;background:linear-gradient(120deg,rgba(79,124,255,.45),rgba(139,92,246,.45));box-shadow:0 0 18px rgba(99,102,241,.45)}
+.burger{display:none;background:none;border:1px solid var(--line);color:#fff;border-radius:999px;padding:7px 13px;font-size:1rem;cursor:pointer}
+/* hero */
+#home{min-height:100vh;display:flex;align-items:center;padding:110px 0 70px;overflow:hidden}
+#orb{position:absolute;right:-6%;top:50%;width:min(780px,95vw);height:min(780px,95vw);transform:translateY(-50%);z-index:0}
+.hero{position:relative;z-index:2;max-width:700px}
+.tag{display:inline-flex;gap:10px;align-items:center;padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--glass);font:600 .8rem monospace;color:#c9d6ff}
+.tag b{width:8px;height:8px;border-radius:50%;background:#34e0b0;box-shadow:0 0 12px #34e0b0}
+.name{font-size:clamp(3rem,10.5vw,7.4rem);line-height:.92;letter-spacing:-.07em;margin:22px 0 18px;font-weight:800}
+.name span{display:block}
+h1.sub{font-size:clamp(1.35rem,3vw,2rem);letter-spacing:-.03em;margin:0 0 14px;font-weight:600}
+.hero p{color:var(--mut);max-width:560px;margin:0 0 28px;font-size:1.06rem}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:14px;font-weight:700;border:1px solid var(--line);cursor:pointer;transition:transform .25s,box-shadow .25s;color:#fff;background:var(--glass);font-family:inherit;font-size:.95rem}
+.btn:hover{transform:translateY(-3px)}
+.btn.p{background:linear-gradient(120deg,#3b6bff,#7c4dff);border-color:transparent;box-shadow:0 10px 34px rgba(91,92,255,.45)}
+.scroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;width:24px;height:40px;border:2px solid #6b7bb0;border-radius:14px}
+.scroll::after{content:"";position:absolute;left:50%;top:7px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--c);animation:sc 1.8s infinite}
+@keyframes sc{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(14px)}}
+.in{opacity:0;transform:translateY(26px);animation:up .9s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes up{to{opacity:1;transform:none}}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .8s,transform .8s}.rv.vis{opacity:1;transform:none}
+/* about */
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:stretch}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:24px;padding:28px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.glass h3{margin:0 0 8px}.glass p{color:var(--mut);margin:0 0 14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:6px 12px;border-radius:999px;font-size:.8rem;font-weight:600;background:rgba(99,120,255,.16);border:1px solid rgba(130,150,255,.35);color:#dbe4ff}
+.stats{display:grid;gap:14px;perspective:900px}
+.stat{padding:22px;border-radius:20px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(79,124,255,.18),rgba(139,92,246,.1));animation:fl 6s ease-in-out infinite}
+.stat:nth-child(2){animation-delay:-2s}.stat:nth-child(3){animation-delay:-4s}
+@keyframes fl{50%{transform:translateY(-8px) rotateX(4deg)}}
+.stat strong{display:block;font-size:2.3rem;letter-spacing:-.05em}.stat span{color:var(--mut);font-size:.88rem}
+/* projects */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.f{padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--glass);color:var(--mut);cursor:pointer;font:600 .85rem inherit;font-family:inherit}
+.f.on{color:#fff;background:linear-gradient(120deg,#3b6bff,#7c4dff);border-color:transparent}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px;perspective:1200px}
+.card{--h:220;position:relative;border-radius:22px;padding:24px;background:linear-gradient(160deg,hsla(var(--h),80%,60%,.16),rgba(10,16,38,.8) 55%);border:1px solid hsla(var(--h),80%,65%,.3);transform-style:preserve-3d;transition:transform .2s,box-shadow .3s;display:flex;flex-direction:column;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--gx,50%) var(--gy,0%),hsla(var(--h),90%,65%,.28),transparent 60%);opacity:0;transition:.3s;pointer-events:none}
+.card:hover{box-shadow:0 20px 60px hsla(var(--h),90%,55%,.3)}.card:hover::before{opacity:1}
+.card.hide{display:none}
+.ct{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.ic{width:52px;height:52px;display:grid;place-items:center;font-size:1.5rem;border-radius:16px;background:hsla(var(--h),85%,60%,.2);border:1px solid hsla(var(--h),85%,65%,.4);transform:translateZ(30px)}
+.st{font:700 .68rem monospace;padding:5px 9px;border-radius:999px;border:1px solid hsla(var(--h),80%,70%,.4);color:hsl(var(--h),90%,80%);text-transform:uppercase;letter-spacing:.05em}
+.card h3{margin:16px 0 8px;font-size:1.12rem;line-height:1.3;transform:translateZ(20px)}
+.card p{color:var(--mut);font-size:.92rem;margin:0 0 12px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card.open p{-webkit-line-clamp:unset;display:block}
+.more{display:none;margin:0 0 12px}.card.open .more{display:block}
+.res{padding:10px 12px;border-left:3px solid hsl(var(--h),90%,65%);background:rgba(255,255,255,.05);border-radius:0 10px 10px 0;font-size:.86rem;color:#dbe4ff}
+.card .chips{margin-top:auto;padding-top:8px}
+.card .chip{font-size:.72rem;padding:4px 9px}
+.tog{margin-top:14px;align-self:flex-start;background:none;border:0;color:hsl(var(--h),90%,75%);font:700 .85rem inherit;font-family:inherit;cursor:pointer;padding:0}
+.ext{display:inline-block;margin-top:10px;color:#9ff0e0;font-weight:700;font-size:.86rem}
+/* research */
+#research{background:linear-gradient(180deg,transparent,rgba(20,30,80,.35),transparent)}
+.lab{display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:stretch}
+.labviz{position:relative;min-height:380px;border-radius:24px;border:1px solid var(--line);background:radial-gradient(circle at 50% 50%,rgba(79,124,255,.16),rgba(5,8,22,.6) 70%);overflow:hidden}
+.labviz canvas{position:absolute;inset:0;width:100%;height:100%}
+.labviz small{position:absolute;left:16px;bottom:12px;font:600 .72rem monospace;color:#7f93c8}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.tab{padding:8px 13px;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--mut);cursor:pointer;font-family:inherit;font-weight:600;font-size:.82rem}
+.tab.on{color:#fff;background:rgba(99,120,255,.22);border-color:rgba(130,150,255,.6)}
+#rp h3{margin:0 0 8px;font-size:1.3rem}#rp .res{margin:12px 0}.note{font-size:.8rem;color:#7f93c8;margin-top:14px}
+/* timeline */
+.tl{position:relative;padding-left:44px}
+.tl::before{content:"";position:absolute;left:13px;top:0;bottom:0;width:2px;background:var(--line)}
+.tl i{position:absolute;left:13px;top:0;width:2px;height:var(--p,0%);background:linear-gradient(var(--b),var(--v),var(--c));box-shadow:0 0 14px var(--v)}
+details.ex{position:relative;margin-bottom:16px;border-radius:20px;border:1px solid var(--line);background:var(--glass)}
+details.ex::before{content:"";position:absolute;left:-37px;top:26px;width:12px;height:12px;border-radius:50%;background:var(--c);box-shadow:0 0 0 5px rgba(34,211,238,.15),0 0 20px var(--c)}
+details.ex summary{list-style:none;cursor:pointer;padding:20px 24px;display:grid;gap:4px}
+details.ex summary::-webkit-details-marker{display:none}
+.dt{font:700 .78rem monospace;color:var(--c)}.tt{font-weight:700;font-size:1.05rem}.sb{color:var(--mut);font-size:.88rem}
+.exb{padding:0 24px 22px;color:#c4d0ee;font-size:.93rem}.exb ul{margin:0 0 12px;padding-left:18px}
+details.ex[open]{border-color:rgba(130,150,255,.5);box-shadow:0 0 40px rgba(99,102,241,.2)}
+/* skills */
+.sk{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
+.sc{padding:24px;border-radius:22px;border:1px solid var(--line);background:var(--glass);transition:.3s}
+.sc:hover{transform:translateY(-6px);border-color:rgba(34,211,238,.5);box-shadow:0 16px 50px rgba(34,211,238,.12)}
+.sc h3{margin:0 0 14px;display:flex;gap:10px;align-items:center}.sc h3 span{font-size:1.4rem;display:inline-block;animation:fl 5s ease-in-out infinite}
+.sc .chip:hover{background:rgba(34,211,238,.25)}
+/* achievements */
+.ach{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;perspective:1000px}
+.ac{padding:32px 26px;border-radius:24px;border:1px solid rgba(255,200,90,.28);background:linear-gradient(160deg,rgba(255,190,80,.12),rgba(139,92,246,.1));text-align:center;transition:transform .3s}
+.ac:hover{transform:rotateY(8deg) rotateX(4deg) translateY(-6px)}
+.ac .em{font-size:3.4rem;display:block;filter:drop-shadow(0 0 20px rgba(255,200,80,.6));animation:fl 5s ease-in-out infinite}
+.ac h3{margin:12px 0 6px}.ac p{color:var(--mut);margin:0;font-size:.92rem}
+/* contact */
+#contact{overflow:hidden;text-align:center;padding-bottom:70px}
+#orb2{width:min(340px,70vw);height:min(340px,70vw);margin:0 auto 10px;display:block}
+#contact .lead{margin-inline:auto}#contact .btns{justify-content:center}
+.mail{display:block;margin:0 0 24px;color:#9fd6ff;font-weight:600}
+footer{padding:26px 0 calc(26px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);color:#7f8fb5;font-size:.85rem;text-align:center}
+@media(max-width:980px){.about,.lab{grid-template-columns:1fr}.nav ul{display:none}.burger{display:block}.nav.open ul{display:flex;flex-direction:column;position:absolute;top:56px;left:0;right:0;padding:10px;border-radius:20px;background:rgba(10,15,36,.96);border:1px solid var(--line)}#orb{opacity:.55;right:-30%}}
+@media(max-width:560px){section{padding:72px 0}.tl{padding-left:36px}details.ex::before{left:-29px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.in,.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-  <div class="nav-wrap">
-    <nav class="container" aria-label="Main navigation">
-      <a class="brand" href="#home">Komal<span>.</span></a>
-      <div class="nav-tools"><button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to light theme" title="Switch theme">☀ Light</button><button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button></div>
-      <div class="nav-links" id="navLinks">
-        <a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a class="nav-cta" href="#contact">Contact</a>
-      </div>
-    </nav>
-  </div>
+<nav class="nav" id="nav" aria-label="Main navigation">
+<a class="logo" href="#home">KK<i>.</i></a>
+<ul id="links"></ul>
+<button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false">☰</button>
+</nav>
+<main>
+<section id="home">
+<canvas id="orb" aria-hidden="true"></canvas>
+<div class="wrap"><div class="hero">
+<div class="tag in"><b></b><span id="typed">Final-Year Computer Engineering Student</span></div>
+<div class="name in" style="animation-delay:.15s"><span class="grad">KOMAL</span><span>KUMARI</span></div>
+<h1 class="sub in" style="animation-delay:.3s">Building Intelligent Solutions Through <span class="grad">AI &amp; Research.</span></h1>
+<p class="in" style="animation-delay:.45s">Exploring the intersection of Artificial Intelligence, Machine Learning, Generative AI, and trustworthy research.</p>
+<div class="btns in" style="animation-delay:.6s"><a class="btn p" href="#projects">Explore My Universe ↗</a><a class="btn" href="mailto:komalkumaricse.01@gmail.com?subject=Resume%20request">Download Resume</a></div>
+</div></div>
+<div class="scroll" aria-hidden="true"></div>
+</section>
 
-  <main>
-    <header class="hero" id="home">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow"><span class="dot"></span> Final-Year Computer Engineering Student</div>
-          <h1>Building thoughtful solutions with <span>AI &amp; research.</span></h1>
-          <p class="hero-copy">I’m Komal Kumari, a Computer Engineering student interested in Machine Learning, Generative AI, and applied research. I enjoy exploring how AI systems can become more useful, explainable, and reliable.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
-            <a class="btn btn-outline" href="https://www.linkedin.com/in/komal-kumari-a10476289/" target="_blank" rel="noopener noreferrer">LinkedIn profile ↗</a>
-          </div>
-        </div>
-        <aside class="hero-card" aria-label="Profile summary">
-          <div class="monogram">KK</div>
-          <h2>Komal Kumari</h2>
-          <p>Computer Engineering · Marwadi University</p>
-          <div class="hero-stat"><strong>9.53/10</strong><span>CGPA</span></div>
-          <div class="pill-list">
-            <span class="pill">AI/ML</span><span class="pill">Generative AI</span><span class="pill">Deep Learning</span><span class="pill">Research</span>
-          </div>
-        </aside>
-      </div>
-    </header>
+<section id="about"><div class="wrap">
+<span class="k">// about</span><h2 class="rv">Curious about the <span class="grad">“why”</span> behind the model.</h2>
+<div class="about rv">
+<div class="glass"><h3>Hello, I’m Komal Kumari</h3>
+<p>A final-year Computer Engineering student at Marwadi University, interested in Machine Learning, Generative AI, and applied research. I combine hands-on project work with research-oriented experimentation, with a growing focus on model performance, explainability, privacy, and real-world impact.</p>
+<h3>Interests</h3><p>Machine learning and deep learning, NLP, deepfake detection, mental-health text analysis, explainable AI, federated learning, and privacy-preserving AI — both building systems and understanding how they behave.</p>
+<h3>Goals</h3><p>I’m looking to grow with teams solving meaningful technical problems, in AI/ML Engineering, Applied AI, and AI Research roles.</p>
+<div class="chips"><span class="chip">Applied AI</span><span class="chip">NLP</span><span class="chip">Trustworthy AI</span><span class="chip">Federated Learning</span><span class="chip">Experimentation</span><span class="chip">Analytical thinking</span></div></div>
+<div class="stats">
+<div class="stat"><strong data-n="9.53" data-d="2">0</strong><span>CGPA out of 10 · Computer Engineering</span></div>
+<div class="stat"><strong data-n="10">0</strong><span>Projects showcased</span></div>
+<div class="stat"><strong data-n="7">0</strong><span>Internships &amp; simulations</span></div>
+</div></div></div></section>
 
-    <section id="about">
-      <div class="container">
-        <div class="section-head">
-          <span class="kicker">About me</span>
-          <h2 class="section-title">Curious about the “why” behind the model.</h2>
-          <p>I combine hands-on project work with research-oriented experimentation, with a growing focus on model performance, explainability, privacy, and real-world impact.</p>
-        </div>
-        <div class="about-grid">
-          <article class="panel">
-            <h3>What I’m exploring</h3>
-            <p>Machine learning and deep learning, NLP, deepfake detection, mental-health text analysis, and privacy-preserving AI. I’m interested in both building systems and understanding how they behave.</p>
-            <div class="pill-list"><span class="pill">Applied AI</span><span class="pill">NLP</span><span class="pill">Trustworthy AI</span><span class="pill">Federated Learning</span></div>
-          </article>
-          <article class="panel">
-            <h3>What I bring</h3>
-            <p>A strong academic foundation, project-based learning, research experience, and a willingness to test ideas, evaluate results, and keep improving. I’m looking to grow with teams solving meaningful technical problems.</p>
-            <div class="pill-list"><span class="pill">Experimentation</span><span class="pill">Problem-solving</span><span class="pill">Analytical thinking</span></div>
-          </article>
-        </div>
-        <div class="metrics">
-          <div class="metric"><strong>9.53/10</strong><span>Academic CGPA</span></div>
-          <div class="metric"><strong>AI/ML</strong><span>Primary technical focus</span></div>
-          <div class="metric"><strong>Research</strong><span>Projects and paper submissions</span></div>
-        </div>
-      </div>
-    </section>
+<section id="projects"><div class="wrap">
+<span class="k">// project lab</span><h2 class="rv">Projects &amp; <span class="grad">experiments</span></h2>
+<p class="lead">AI/ML, data analytics, mobile, and full-stack projects focused on practical problems and experimentation. Tap a card for details.</p>
+<div class="filters" id="filters" role="group" aria-label="Project filters"></div>
+<div class="grid" id="grid"></div>
+</div></section>
 
-    <section class="section-soft" id="projects">
-      <div class="container">
-        <div class="section-head">
-          <span class="kicker">Selected work</span>
-          <h2 class="section-title">Projects &amp; experiments</h2>
-          <p>A selection of AI/ML, data analytics, mobile, and full-stack projects focused on practical problems, experimentation, and useful software.</p>
-        </div>
-        <div class="cards">
-          <article class="project-card">
-            <div class="project-top"><div class="project-icon">🧠</div><span class="status">AI/ML project</span></div>
-            <h3>MentalBERT-LIWC: Depression Detection</h3>
-            <p>Explored transformer-based text analysis and linguistic features for depression detection, with explainability methods to help interpret model predictions.</p>
-            <div class="result"><strong>Reported results:</strong> 82.18% accuracy · 0.9137 AUC</div>
-            <div class="pill-list"><span class="pill">NLP</span><span class="pill">Transformers</span><span class="pill">Explainable AI</span><span class="pill">LIME / SHAP</span></div>
-          </article>
-          <article class="project-card">
-            <div class="project-top"><div class="project-icon">🛡️</div><span class="status">AI/ML project</span></div>
-            <h3>FedDeepGuard: Federated Deepfake Detection</h3>
-            <p>Explored a federated deepfake detection approach combining visual feature representations, with attention to performance across non-IID data settings and robustness.</p>
-            <div class="result"><strong>Reported result:</strong> F1-score 0.9433 ± 0.0043 in the stated Non-IID experimental setting.</div>
-            <div class="pill-list"><span class="pill">Federated Learning</span><span class="pill">ViT</span><span class="pill">RGB / ELA / DCT</span><span class="pill">Robustness</span></div>
-          </article>
-          <article class="project-card">
-            <div class="project-top"><div class="project-icon">🎙️</div><span class="status">AI/ML project</span></div>
-            <h3>Audio Deepfake Detection</h3>
-            <p>Developed an audio classification approach combining CNN, BiLSTM, and multi-head attention, using MFCC features for speech deepfake detection experiments.</p>
-            <div class="result"><strong>Reported results:</strong> 85.50% accuracy · 0.9122 F1-score · 0.9639 AUC · 9.10% EER</div>
-            <div class="pill-list"><span class="pill">Deep Learning</span><span class="pill">CNN</span><span class="pill">BiLSTM</span><span class="pill">Attention</span></div>
-          </article>
-          <article class="project-card">
-            <div class="project-top"><div class="project-icon">🔐</div><span class="status">AI/ML project</span></div>
-            <h3>Privacy-Preserving Federated Quantum Recommendation</h3>
-            <p>Investigated quantum machine learning and privacy-preserving techniques for federated recommendation using MovieLens-100K, including secure aggregation concepts and differential privacy.</p>
-            <div class="result"><strong>Reported results:</strong> RMSE ~1.0861 · HitRate@10 ~0.4665</div>
-            <div class="pill-list"><span class="pill">Quantum ML</span><span class="pill">Federated Learning</span><span class="pill">PennyLane / Qiskit</span><span class="pill">Privacy</span></div>
-          </article>
-          <article class="project-card">
-            <div class="project-top"><div class="project-icon">📊</div><span class="status">Data analytics</span></div>
-            <h3>Customer Churn Analysis &amp; Prediction</h3>
-            <p>Analyzed customer churn data and explored predictive modeling to identify patterns that can support customer-retention decisions.</p>
-            <div class="pill-list"><span class="pill">Python</span><span class="pill">Data Analysis</span><span class="pill">Machine Learning</span></div>
-          </article>
-          <article class="project-card">
-            <div class="project-top"><div class="project-icon">💼</div><span class="status">Full-stack</span></div>
-            <h3>CareerPilot: Placement &amp; Job Management</h3>
-            <p>A placement and job management platform built with a Java/Spring Boot backend and React frontend, designed to help manage opportunities and applications.</p>
-            <div class="pill-list"><span class="pill">Java 17</span><span class="pill">Spring Boot</span><span class="pill">React</span><span class="pill">PostgreSQL / H2</span></div>
-          </article>
-          <article class="project-card">
-            <div class="project-top"><div class="project-icon">💰</div><span class="status">Full-stack · ML</span></div>
-            <h3>Smart Expense Tracker with ML Predictions</h3>
-            <p>An expense management system for tracking income, expenses, categories, and budgets, with ML-powered spending forecasts, anomaly detection, spending-pattern clustering, and overspending-risk prediction. Includes a dynamic dashboard and PDF export.</p>
-            <div class="pill-list"><span class="pill">ASP.NET Web Forms</span><span class="pill">C#</span><span class="pill">ADO.NET</span><span class="pill">SQL Server</span><span class="pill">ML.NET</span><span class="pill">K-Means</span></div>
-          </article>
-          <article class="project-card">
-            <div class="project-top"><div class="project-icon">🌱</div><span class="status">Applied AI concept</span></div>
-            <h3>Smart Farming Assistant</h3>
-            <p>A farming-support project concept focused on using technology and data-driven insights to help users make more informed agricultural decisions.</p>
-            <div class="pill-list"><span class="pill">Smart Agriculture</span><span class="pill">Data-driven insights</span><span class="pill">Applied AI</span></div>
-          </article>
-          <article class="project-card">
-            <div class="project-top"><div class="project-icon">🧸</div><span class="status">Android application</span></div>
-            <h3>FunLearn Kids</h3>
-            <p>An ad-free Android learning app for children aged 3–7, designed to make early learning engaging through a child-friendly experience.</p>
-            <p class="project-links"><a class="project-link" href="https://play.google.com/store/apps/details?id=com.marwadiuniversity.abckids&amp;hl=en_IN" target="_blank" rel="noopener noreferrer">View on Google Play ↗</a></p>
-            <div class="pill-list"><span class="pill">Android</span><span class="pill">Education Technology</span><span class="pill">Child-friendly UX</span></div>
-          </article>
+<section id="research"><div class="wrap">
+<span class="k">// research lab</span><h2 class="rv">My digital <span class="grad">research lab</span></h2>
+<p class="lead">Explainability, federated learning, privacy and deepfake detection. Select a study to explore it.</p>
+<div class="lab">
+<div class="labviz"><canvas id="lab" aria-hidden="true"></canvas><small>layered network · signals flowing</small></div>
+<div class="glass"><div class="tabs" id="tabs" role="tablist"></div><div id="rp" aria-live="polite"></div></div>
+</div></div></section>
 
-          <article class="project-card">
-            <div class="project-top"><div class="project-icon">🧬</div><span class="status">AI security</span></div>
-            <h3>Explainable Federated GNN for Anti-Money Laundering</h3>
-            <p>An experimental project exploring graph-based AML detection in a federated setting, including robustness strategies, explainability, and blockchain-oriented audit concepts.</p>
-            <div class="pill-list"><span class="pill">Graph Neural Networks</span><span class="pill">Federated Learning</span><span class="pill">XAI</span><span class="pill">Blockchain</span></div>
-          </article>
-        </div>
-        
-      </div>
-    </section>
+<section id="experience"><div class="wrap">
+<span class="k">// timeline</span><h2 class="rv">Learning through <span class="grad">structured programs</span></h2>
+<p class="lead">Internship and training experience across AI, machine learning, data analytics, and development tools. Expand an entry for details.</p>
+<div class="tl" id="tl"><i id="tlp"></i></div>
+</div></section>
 
+<section id="skills"><div class="wrap">
+<span class="k">// toolkit</span><h2 class="rv">Skills I’m <span class="grad">building and applying</span></h2>
+<p class="lead">A practical toolkit for AI/ML experimentation, data work, and software development. Skill depth varies by tool and project.</p>
+<div class="sk" id="sk"></div>
+</div></section>
 
-    <section class="section-soft" id="experience">
-      <div class="container">
-        <div class="section-head">
-          <span class="kicker">Experience</span>
-          <h2 class="section-title">Learning through structured programs</h2>
-          <p>Internship and training experience across AI, machine learning, data analytics, and development tools.</p>
-        </div>
-        <div class="timeline">
-          <article class="timeline-item">
-            <div class="timeline-date">Aug – Sep 2026 · 6 weeks</div>
-            <div><h3>Machine Learning &amp; Applied AI Intern — IBM SkillsBuild &amp; AICTE</h3><div class="sub">Six-week Machine Learning and Applied AI program</div><ul><li>Built foundational knowledge of machine learning and deep learning, including supervised, unsupervised, and reinforcement learning.</li><li>Explored practical AI tools and platforms, including IBM Watson Studio / watsonx and Google Teachable Machine.</li><li>Strengthened understanding of how AI/ML methods can be applied to real-world problems.</li></ul></div>
-          </article>
-          <article class="timeline-item">
-            <div class="timeline-date">May 2026 · AICTE–Cisco</div>
-            <div><h3>AICTE–Cisco Virtual Internship — Artificial Intelligence</h3><div class="sub">Virtual internship · AI learning and applied project work</div><ul><li>Completed learning activities in Modern AI, Customer Review Analysis, and Data Analytics.</li><li>Participated in Cisco leader sessions to gain industry perspectives on technology and AI.</li><li>Worked toward a final-phase project focused on addressing a real-world industry problem.</li></ul></div>
-          </article>
-          <article class="timeline-item">
-            <div class="timeline-date">Feb 2026 · 1 month</div>
-            <div><h3>Data Analytics Job Simulation (Virtual) — Tata Group</h3><div class="sub">Virtual job simulation · Rajkot, Gujarat, India · Remote</div><ul><li>Completed practical data analytics simulation tasks involving business intelligence and forensic data analysis.</li><li>Practised data visualization and Tableau-based reporting as part of the simulation.</li></ul><div class="pill-list"><span class="pill">Data Visualization</span><span class="pill">Tableau</span><span class="pill">Business Intelligence</span></div></div>
-          </article>
-          <article class="timeline-item">
-            <div class="timeline-date">Dec 2025 – Jan 2026 · 2 months</div>
-            <div><h3>GenAI-Powered Data Analytics Job Simulation (Virtual) — Tata Group</h3><div class="sub">Virtual job simulation · Dec 2025 – Jan 2026</div><ul><li>Conducted exploratory data analysis (EDA) using GenAI tools to assess data quality and identify customer delinquency risk indicators.</li><li>Explored data analysis and predictive modeling as part of practical business-focused tasks.</li></ul><div class="pill-list"><span class="pill">Data Analysis</span><span class="pill">Predictive Modeling</span><span class="pill">Generative AI</span></div></div>
-          </article>
-          <article class="timeline-item">
-            <div class="timeline-date">Dec 2025 – Jan 2026 · 2 months</div>
-            <div><h3>Data Analysis Intern — SaiKet Systems</h3><div class="sub">Internship · Rajkot, Gujarat, India · Remote</div><ul><li>Worked on data analysis tasks using Python and data visualization techniques.</li><li>Developed practical experience interpreting data and presenting findings through visualizations.</li></ul><div class="pill-list"><span class="pill">Python</span><span class="pill">Data Visualization</span><span class="pill">Data Analysis</span></div></div>
-          </article>
-          <article class="timeline-item">
-            <div class="timeline-date">Jun 2025 · 1 month</div>
-            <div><h3>Research Intern — CE Marwadi University</h3><div class="sub">Student Research Internship Training (SRIT) · Rajkot, Gujarat, India</div><ul><li>Completed a 30-day Student Research Internship Training (SRIT).</li><li>Authored a research paper on a blockchain-inspired privacy-preserving cryptographic framework for secure energy data.</li><li>Built experience in research writing and Python programming.</li></ul><div class="pill-list"><span class="pill">Research Writing</span><span class="pill">Python</span><span class="pill">Blockchain</span><span class="pill">Privacy</span></div></div>
-          </article>
-          <article class="timeline-item">
-            <div class="timeline-date">May 2025 – Jun 2025 · 2 months</div>
-            <div><h3>MERN Stack Intern — BrainyBeam Technologies Pvt. Ltd.</h3><div class="sub">Internship · Ahmedabad, Gujarat, India · Remote</div><ul><li>Gained hands-on experience in full-stack web development using the MERN stack.</li><li>Built familiarity with frontend and backend development workflows during the internship.</li></ul><div class="pill-list"><span class="pill">MongoDB</span><span class="pill">Express.js</span><span class="pill">React</span><span class="pill">Node.js</span></div></div>
-          </article>
+<section id="achievements"><div class="wrap">
+<span class="k">// beyond the code</span><h2 class="rv">Achievements &amp; <span class="grad">community</span></h2>
+<div class="ach rv">
+<article class="ac"><span class="em">🏅</span><h3>Sports achievements</h3><p>Women’s Kho Kho winner at MU Fest 2026 and runner-up in 2025; 400m event winner in 2024.</p></article>
+<article class="ac"><span class="em">🎤</span><h3>Campus involvement</h3><p>Coordinator for MU Tech Hunt / eMULate activities.</p></article>
+<article class="ac"><span class="em">🏆</span><h3>Personal achievements</h3><p>Miss MU 2026 — 2nd Runner-Up; art exhibition 2nd Runner-Up; anti-ragging poster competition winner.</p></article>
+</div></div></section>
 
+<section id="contact"><div class="wrap">
+<canvas id="orb2" aria-hidden="true"></canvas>
+<span class="k">// let’s connect</span><h2>Open to learning, research, and <span class="grad">AI/ML opportunities.</span></h2>
+<p class="lead">Recruiters, researchers, and collaborators — I’d love to hear from you. I’m interested in AI/ML Engineering, Applied AI, and AI Research roles where I can contribute, collaborate, and keep learning.</p>
+<a class="mail" href="mailto:komalkumaricse.01@gmail.com">komalkumaricse.01@gmail.com</a>
+<div class="btns"><a class="btn p" href="https://www.linkedin.com/in/komal-kumari-a10476289/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="btn" href="https://github.com/0Komal01" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a class="btn" href="mailto:komalkumaricse.01@gmail.com">Email ↗</a></div>
+</div></section>
+</main>
+<footer>© <span id="yr"></span> Komal Kumari · Designed for clarity, evidence, and responsible AI.</footer>
 
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="container">
-        <div class="section-head">
-          <span class="kicker">Technical toolkit</span>
-          <h2 class="section-title">Skills I’m building and applying</h2>
-          <p>A practical toolkit for AI/ML experimentation, data work, and software development. Skill depth varies by tool and project.</p>
-        </div>
-        <div class="skills-grid">
-          <article class="skill-card"><h3>Programming &amp; Data</h3><p>Python, Java, C, SQL, NumPy, Pandas, data analysis</p></article>
-          <article class="skill-card"><h3>AI &amp; Machine Learning</h3><p>Machine Learning, Deep Learning, NLP, Generative AI, model evaluation</p></article>
-          <article class="skill-card"><h3>Frameworks &amp; Libraries</h3><p>PyTorch, Scikit-learn, Transformers, ML.NET</p></article>
-          <article class="skill-card"><h3>Research Methods</h3><p>Experimental evaluation, explainability, LIME, SHAP, federated learning concepts</p></article>
-          <article class="skill-card"><h3>Development Tools</h3><p>Git, GitHub, Docker, Jenkins, Maven, Spring Boot, React</p></article>
-          <article class="skill-card"><h3>Analytics &amp; Visualization</h3><p>Tableau, Excel, exploratory data analysis, data storytelling</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-soft" id="achievements">
-      <div class="container">
-        <div class="section-head">
-          <span class="kicker">Beyond the code</span>
-          <h2 class="section-title">Achievements &amp; community</h2>
-          <p>Academic, extracurricular, and coordination experiences that reflect teamwork and commitment beyond technical projects.</p>
-        </div>
-        <div class="achievement-grid">
-          <article class="achievement"><div class="emoji">🏅</div><h3>Sports achievements</h3><p>Women’s Kho Kho winner at MU Fest 2026 and runner-up in 2025; 400m event winner in 2024.</p></article>
-          <article class="achievement"><div class="emoji">🎤</div><h3>Campus involvement</h3><p>Coordinator for MU Tech Hunt / eMULate activities.</p></article>
-          <article class="achievement"><div class="emoji">🌟</div><h3>Personal achievements</h3><p>Miss MU 2026 — 2nd Runner-Up; art exhibition 2nd Runner-Up; anti-ragging poster competition winner.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="container">
-        <div class="section-head">
-          <span class="kicker">Let’s connect</span>
-          <h2 class="section-title">Open to learning, research, and AI/ML opportunities.</h2>
-          <p>I’m interested in AI/ML Engineering, Applied AI, and AI Research opportunities where I can contribute, collaborate, and keep learning.</p>
-        </div>
-        <div class="contact-box">
-          <div><h3>Komal Kumari</h3><p>Final-Year Computer Engineering Student · Marwadi University</p><p style="margin-top:8px"><a href="mailto:komalkumaricse.01@gmail.com">komalkumaricse.01@gmail.com</a></p></div>
-          <div class="hero-actions" style="margin-top:0">
-            <a class="btn btn-primary" href="https://www.linkedin.com/in/komal-kumari-a10476289/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a>
-            <a class="btn btn-outline" href="https://github.com/0Komal01" target="_blank" rel="noopener noreferrer">Explore GitHub ↗</a>
-            <a class="btn btn-outline" href="mailto:komalkumaricse.01@gmail.com">Email me ↗</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-  <footer><div class="container"><span>© <span id="year"></span> Komal Kumari</span><span>Designed for clarity, evidence, and responsible AI.</span></div></footer>
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    const menuBtn = document.getElementById("menuBtn");
-    const navLinks = document.getElementById("navLinks");
-    menuBtn.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-      menuBtn.setAttribute("aria-expanded", String(isOpen));
-    });
-    navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
-      navLinks.classList.remove("open");
-      menuBtn.setAttribute("aria-expanded", "false");
-    }));
-    const themeBtn = document.getElementById("themeBtn");
-    const savedTheme = localStorage.getItem("komal-portfolio-theme");
-    if (savedTheme === "light") document.body.classList.add("light");
-    function updateThemeButton() {
-      const isLight = document.body.classList.contains("light");
-      themeBtn.textContent = isLight ? "☾ Dark" : "☀ Light";
-      themeBtn.setAttribute("aria-label", isLight ? "Switch to dark theme" : "Switch to light theme");
-      themeBtn.title = isLight ? "Switch to dark theme" : "Switch to light theme";
-    }
-    updateThemeButton();
-    themeBtn.addEventListener("click", () => {
-      document.body.classList.toggle("light");
-      localStorage.setItem("komal-portfolio-theme", document.body.classList.contains("light") ? "light" : "dark");
-      updateThemeButton();
-    });
-  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script>
+window.addEventListener("DOMContentLoaded",function(){
+var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
+var RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
+$("#yr").textContent=new Date().getFullYear();
+/* nav */
+var secs=[["home","Home"],["about","About"],["projects","Projects"],["research","Research"],["experience","Experience"],["skills","Skills"],["achievements","Achievements"],["contact","Contact"]];
+$("#links").innerHTML=secs.map(function(s){return '<li><a class="l" href="#'+s[0]+'">'+s[1]+'</a></li>'}).join("");
+$("#burger").onclick=function(){var o=$("#nav").classList.toggle("open");this.setAttribute("aria-expanded",o)};
+$$("#links a").forEach(function(a){a.onclick=function(){$("#nav").classList.remove("open")}});
+var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){$$("#links a").forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id);a.setAttribute("aria-current",a.classList.contains("on")?"true":"false")})}})},{rootMargin:"-45% 0px -50% 0px"});
+secs.forEach(function(s){so.observe($("#"+s[0]))});
+/* data */
+var T="Deep Learning";
+var P=[
+["MentalBERT-LIWC: Depression Detection","🧠",["ai","res"],"AI/ML project",265,"Explored transformer-based text analysis and linguistic features for depression detection, with explainability methods to help interpret model predictions.","82.18% accuracy · 0.9137 AUC",["NLP","Transformers","Explainable AI","LIME / SHAP"]],
+["FedDeepGuard: Federated Deepfake Detection","🛡️",["ai","res"],"AI/ML project",215,"Explored a federated deepfake detection approach combining visual feature representations, with attention to performance across non-IID data settings and robustness.","F1-score 0.9433 ± 0.0043 in the stated Non-IID experimental setting",["Federated Learning","ViT","RGB / ELA / DCT","Robustness"]],
+["Audio Deepfake Detection","🎙️",["ai","res"],"AI/ML project",290,"Developed an audio classification approach combining CNN, BiLSTM, and multi-head attention, using MFCC features for speech deepfake detection experiments.","85.50% accuracy · 0.9122 F1-score · 0.9639 AUC · 9.10% EER",["Deep Learning","CNN","BiLSTM","Attention"]],
+["Privacy-Preserving Federated Quantum Recommendation","🔐",["ai","res"],"AI/ML project",185,"Investigated quantum machine learning and privacy-preserving techniques for federated recommendation using MovieLens-100K, including secure aggregation concepts and differential privacy.","RMSE ~1.0861 · HitRate@10 ~0.4665",["Quantum ML","Federated Learning","PennyLane / Qiskit","Privacy"]],
+["Customer Churn Analysis & Prediction","📊",["da"],"Data analytics",160,"Analyzed customer churn data and explored predictive modeling to identify patterns that can support customer-retention decisions.","",["Python","Data Analysis","Machine Learning"]],
+["CareerPilot: Placement & Job Management","💼",["fs","app"],"Full-stack",235,"A placement and job management platform built with a Java/Spring Boot backend and React frontend, designed to help manage opportunities and applications.","",["Java 17","Spring Boot","React","PostgreSQL / H2"]],
+["Smart Expense Tracker with ML Predictions","💰",["fs","app","da"],"Full-stack · ML",35,"An expense management system for tracking income, expenses, categories, and budgets, with ML-powered spending forecasts, anomaly detection, spending-pattern clustering, and overspending-risk prediction. Includes a dynamic dashboard and PDF export.","",["ASP.NET Web Forms","C#","ADO.NET","SQL Server","ML.NET","K-Means"]],
+["Smart Farming Assistant","🌱",["ai","app"],"Applied AI concept",140,"A farming-support project concept focused on using technology and data-driven insights to help users make more informed agricultural decisions.","",["Smart Agriculture","Data-driven insights","Applied AI"]],
+["FunLearn Kids","🧸",["app"],"Android application",320,"An ad-free Android learning app for children aged 3–7, designed to make early learning engaging through a child-friendly experience.","",["Android","Education Technology","Child-friendly UX"],"https://play.google.com/store/apps/details?id=com.marwadiuniversity.abckids&hl=en_IN"],
+["Explainable Federated GNN for Anti-Money Laundering","🧬",["ai","res"],"AI security",195,"An experimental project exploring graph-based AML detection in a federated setting, including robustness strategies, explainability, and blockchain-oriented audit concepts.","",["Graph Neural Networks","Federated Learning","XAI","Blockchain"]]];
+var F=[["all","All"],["ai","AI/ML"],["res","Research"],["fs","Full Stack"],["da","Data Analytics"],["app","Applications"]];
+$("#filters").innerHTML=F.map(function(f,i){return '<button class="f'+(i?'':' on')+'" data-f="'+f[0]+'" aria-pressed="'+(!i)+'">'+f[1]+'</button>'}).join("");
+$("#grid").innerHTML=P.map(function(p,i){return '<article class="card" style="--h:'+p[4]+'" data-c="'+p[2].join(" ")+'"><div class="ct"><div class="ic">'+p[1]+'</div><span class="st">'+p[3]+'</span></div><h3>'+p[0]+'</h3><p>'+p[5]+'</p>'+(p[6]?'<div class="res more"><strong>Reported:</strong> '+p[6]+'</div>':'')+(p[8]?'<a class="ext more" href="'+p[8]+'" target="_blank" rel="noopener noreferrer">View on Google Play ↗</a>':'')+'<div class="chips">'+p[7].map(function(t){return '<span class="chip">'+t+'</span>'}).join("")+'</div><button class="tog" aria-expanded="false">Details +</button></article>'}).join("");
+$$(".f").forEach(function(b){b.onclick=function(){$$(".f").forEach(function(x){x.classList.remove("on");x.setAttribute("aria-pressed","false")});b.classList.add("on");b.setAttribute("aria-pressed","true");var f=b.dataset.f;$$(".card").forEach(function(c){c.classList.toggle("hide",f!=="all"&&c.dataset.c.split(" ").indexOf(f)<0)})}});
+$$(".tog").forEach(function(b){b.onclick=function(){var c=b.parentNode,o=c.classList.toggle("open");b.textContent=o?"Close −":"Details +";b.setAttribute("aria-expanded",o)}});
+/* tilt */
+if(!RM&&matchMedia("(hover:hover)").matches)$$(".card").forEach(function(c){c.addEventListener("pointermove",function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.style.transform="rotateY("+((x-.5)*12)+"deg) rotateX("+((.5-y)*12)+"deg) translateZ(6px)";c.style.setProperty("--gx",x*100+"%");c.style.setProperty("--gy",y*100+"%")});c.addEventListener("pointerleave",function(){c.style.transform=""})});
+/* research */
+var R=[[0,"MentalBERT-LIWC"],[1,"FedDeepGuard"],[2,"Audio Deepfake"],[3,"Federated Quantum Rec."],[9,"Federated GNN for AML"],[-1,"Privacy Framework (SRIT)"]];
+function showR(k){$$(".tab").forEach(function(t,i){t.classList.toggle("on",i===k);t.setAttribute("aria-selected",i===k)});var id=R[k][0],h;
+if(id<0)h='<h3>Blockchain-Inspired Privacy-Preserving Cryptographic Framework</h3><p style="color:var(--mut)">Authored during the 30-day Student Research Internship Training (SRIT) at CE Marwadi University, Jun 2025: a research paper on a blockchain-inspired privacy-preserving cryptographic framework for secure energy data.</p><div class="chips"><span class="chip">Research Writing</span><span class="chip">Python</span><span class="chip">Blockchain</span><span class="chip">Privacy</span></div>';
+else{var p=P[id];h='<h3>'+p[0]+'</h3><p style="color:var(--mut)">'+p[5]+'</p>'+(p[6]?'<div class="res"><strong>Reported:</strong> '+p[6]+'</div>':'')+'<div class="chips">'+p[7].map(function(t){return '<span class="chip">'+t+'</span>'}).join("")+'</div>'}
+$("#rp").innerHTML=h+'<p class="note">Publication status is not stated in the original portfolio, so none is claimed here.</p>'}
+$("#tabs").innerHTML=R.map(function(r,i){return '<button class="tab" role="tab">'+r[1]+'</button>'}).join("");
+$$(".tab").forEach(function(t,i){t.onclick=function(){showR(i)}});showR(0);
+/* experience */
+var E=[["Aug – Sep 2026 · 6 weeks","Machine Learning & Applied AI Intern — IBM SkillsBuild & AICTE","Six-week Machine Learning and Applied AI program",["Built foundational knowledge of machine learning and deep learning, including supervised, unsupervised, and reinforcement learning.","Explored practical AI tools and platforms, including IBM Watson Studio / watsonx and Google Teachable Machine.","Strengthened understanding of how AI/ML methods can be applied to real-world problems."],[]],
+["May 2026 · AICTE–Cisco","AICTE–Cisco Virtual Internship — Artificial Intelligence","Virtual internship · AI learning and applied project work",["Completed learning activities in Modern AI, Customer Review Analysis, and Data Analytics.","Participated in Cisco leader sessions to gain industry perspectives on technology and AI.","Worked toward a final-phase project focused on addressing a real-world industry problem."],[]],
+["Feb 2026 · 1 month","Data Analytics Job Simulation (Virtual) — Tata Group","Virtual job simulation · Rajkot, Gujarat, India · Remote",["Completed practical data analytics simulation tasks involving business intelligence and forensic data analysis.","Practised data visualization and Tableau-based reporting as part of the simulation."],["Data Visualization","Tableau","Business Intelligence"]],
+["Dec 2025 – Jan 2026 · 2 months","GenAI-Powered Data Analytics Job Simulation (Virtual) — Tata Group","Virtual job simulation · Dec 2025 – Jan 2026",["Conducted exploratory data analysis (EDA) using GenAI tools to assess data quality and identify customer delinquency risk indicators.","Explored data analysis and predictive modeling as part of practical business-focused tasks."],["Data Analysis","Predictive Modeling","Generative AI"]],
+["Dec 2025 – Jan 2026 · 2 months","Data Analysis Intern — SaiKet Systems","Internship · Rajkot, Gujarat, India · Remote",["Worked on data analysis tasks using Python and data visualization techniques.","Developed practical experience interpreting data and presenting findings through visualizations."],["Python","Data Visualization","Data Analysis"]],
+["Jun 2025 · 1 month","Research Intern — CE Marwadi University","Student Research Internship Training (SRIT) · Rajkot, Gujarat, India",["Completed a 30-day Student Research Internship Training (SRIT).","Authored a research paper on a blockchain-inspired privacy-preserving cryptographic framework for secure energy data.","Built experience in research writing and Python programming."],["Research Writing","Python","Blockchain","Privacy"]],
+["May 2025 – Jun 2025 · 2 months","MERN Stack Intern — BrainyBeam Technologies Pvt. Ltd.","Internship · Ahmedabad, Gujarat, India · Remote",["Gained hands-on experience in full-stack web development using the MERN stack.","Built familiarity with frontend and backend development workflows during the internship."],["MongoDB","Express.js","React","Node.js"]]];
+$("#tl").insertAdjacentHTML("beforeend",E.map(function(e,i){return '<details class="ex rv"'+(i?'':' open')+'><summary><span class="dt">'+e[0]+'</span><span class="tt">'+e[1]+'</span><span class="sb">'+e[2]+'</span></summary><div class="exb"><ul>'+e[3].map(function(b){return '<li>'+b+'</li>'}).join("")+'</ul><div class="chips">'+e[4].map(function(t){return '<span class="chip">'+t+'</span>'}).join("")+'</div></div></details>'}).join(""));
+/* skills */
+var S=[["⌨️","Programming & Data",["Python","Java","C","SQL","NumPy","Pandas","Data analysis"]],["🧠","AI & Machine Learning",["Machine Learning","Deep Learning","NLP","Generative AI","Model evaluation"]],["⚙️","Frameworks & Libraries",["PyTorch","Scikit-learn","Transformers","ML.NET"]],["🔬","Research Methods",["Experimental evaluation","Explainability","LIME","SHAP","Federated learning concepts"]],["🛠️","Development Tools",["Git","GitHub","Docker","Jenkins","Maven","Spring Boot","React"]],["📈","Analytics & Visualization",["Tableau","Excel","Exploratory data analysis","Data storytelling"]]];
+$("#sk").innerHTML=S.map(function(s){return '<article class="sc rv"><h3><span>'+s[0]+'</span>'+s[1]+'</h3><div class="chips">'+s[2].map(function(t){return '<span class="chip">'+t+'</span>'}).join("")+'</div></article>'}).join("");
+/* typed intro */
+var ph=["Final-Year Computer Engineering Student","AI/ML · Generative AI","Explainable & Federated Learning","Research-driven builder"],pi=0;
+if(!RM)setInterval(function(){pi=(pi+1)%ph.length;var el=$("#typed");el.style.opacity=0;setTimeout(function(){el.textContent=ph[pi];el.style.opacity=1},300)},3200);
+$("#typed").style.transition="opacity .3s";
+/* reveal, counters, timeline progress */
+var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("vis");ro.unobserve(e.target)}})},{threshold:.12});
+$$(".rv").forEach(function(e){ro.observe(e)});
+var co=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var el=e.target,n=+el.dataset.n,d=+(el.dataset.d||0),t0=performance.now();co.unobserve(el);(function f(t){var k=RM?1:Math.min(1,(t-t0)/1200);el.textContent=(n*(1-Math.pow(1-k,3))).toFixed(d);if(k<1)requestAnimationFrame(f)})(t0)})});
+$$("[data-n]").forEach(function(e){co.observe(e)});
+function prog(){var r=$("#tl").getBoundingClientRect(),p=Math.max(0,Math.min(1,(innerHeight*.6-r.top)/r.height));$("#tlp").style.setProperty("--p",p*100+"%")}
+addEventListener("scroll",prog,{passive:true});prog();
+/* pointer glow */
+addEventListener("pointermove",function(e){document.body.style.setProperty("--mx",e.clientX+"px");document.body.style.setProperty("--my",e.clientY+"px")},{passive:true});
+/* 3D neural orbs (Three.js, paused off-screen, DPR capped) */
+function orb(cv,o){
+ if(!window.THREE||!cv)return;
+ var r;try{r=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true,powerPreference:"low-power"})}catch(e){return}
+ r.setPixelRatio(Math.min(devicePixelRatio,1.5));
+ var sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(45,1,.1,100);cam.position.z=7;
+ var g=new THREE.Group();sc.add(g);
+ var n=o.n,pos=[],col=[],c1=new THREE.Color(0x4f7cff),c2=new THREE.Color(0x8b5cff),c3=new THREE.Color(0x22d3ee),i,j;
+ for(i=0;i<n;i++){var y=1-2*(i+.5)/n,rad=Math.sqrt(1-y*y),a=i*2.39996,k=o.R*(1+(Math.random()-.5)*o.j);
+  pos.push(Math.cos(a)*rad*k,y*k,Math.sin(a)*rad*k);var m=(y+1)/2,c=m<.5?c1.clone().lerp(c2,m*2):c2.clone().lerp(c3,(m-.5)*2);col.push(c.r,c.g,c.b)}
+ var pg=new THREE.BufferGeometry();pg.setAttribute("position",new THREE.Float32BufferAttribute(pos,3));pg.setAttribute("color",new THREE.Float32BufferAttribute(col,3));
+ g.add(new THREE.Points(pg,new THREE.PointsMaterial({size:o.s,vertexColors:true,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false})));
+ var lp=[],lc=[];for(i=0;i<n;i++)for(j=i+1;j<n;j++){var dx=pos[i*3]-pos[j*3],dy=pos[i*3+1]-pos[j*3+1],dz=pos[i*3+2]-pos[j*3+2];if(dx*dx+dy*dy+dz*dz<o.t){lp.push(pos[i*3],pos[i*3+1],pos[i*3+2],pos[j*3],pos[j*3+1],pos[j*3+2]);lc.push(col[i*3],col[i*3+1],col[i*3+2],col[j*3],col[j*3+1],col[j*3+2])}}
+ var lg=new THREE.BufferGeometry();lg.setAttribute("position",new THREE.Float32BufferAttribute(lp,3));lg.setAttribute("color",new THREE.Float32BufferAttribute(lc,3));
+ g.add(new THREE.LineSegments(lg,new THREE.LineBasicMaterial({vertexColors:true,transparent:true,opacity:.35,blending:THREE.AdditiveBlending,depthWrite:false})));
+ var core=new THREE.Mesh(new THREE.IcosahedronGeometry(o.R*.35,1),new THREE.MeshBasicMaterial({color:0x6d7dff,wireframe:true,transparent:true,opacity:.35}));g.add(core);
+ var tx=0,ty=0,vis=true,w=0,h=0;
+ function rs(){var b=cv.getBoundingClientRect();w=b.width;h=b.height;if(!w||!h)return;r.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}
+ new ResizeObserver(rs).observe(cv);rs();
+ addEventListener("pointermove",function(e){tx=(e.clientY/innerHeight-.5)*.7;ty=(e.clientX/innerWidth-.5)*.9},{passive:true});
+ new IntersectionObserver(function(e){vis=e[0].isIntersecting;if(vis&&!RM)loop()}).observe(cv);
+ var t=0,run=false;
+ function draw(){g.rotation.y+=.0025;g.rotation.x+=(tx-g.rotation.x)*.04;g.rotation.z+=(ty*.3-g.rotation.z)*.04;core.rotation.y-=.01;var s=1+Math.sin(t+=.02)*.025;g.scale.setScalar(s);r.render(sc,cam)}
+ function loop(){if(run)return;run=true;(function f(){if(!vis){run=false;return}draw();requestAnimationFrame(f)})()}
+ if(RM){g.rotation.set(.3,.6,0);r.render(sc,cam)}else loop();
+}
+/* research lab: flat layered network diagram (2D canvas, no WebGL) */
+function layers(cv){
+ if(!cv)return;
+ var x=cv.getContext("2d"),L=[4,6,7,5,3],N=["Input","Layer 1","Layer 2","Layer 3","Output"],C=["#22d3ee","#4f7cff","#8b5cff","#4f7cff","#34e0b0"],nodes=[],edges=[],W=0,H=0,vis=true,mx=0,t=0,dpr=Math.min(devicePixelRatio,1.5),run=false;
+ L.forEach(function(c,li){for(var k=0;k<c;k++)nodes.push({l:li,k:k,c:c,ph:Math.random()*6})});
+ nodes.forEach(function(a){nodes.forEach(function(b){if(b.l===a.l+1&&Math.random()<.55)edges.push({a:a,b:b,o:Math.random()})})});
+ function rs(){var b=cv.getBoundingClientRect();W=b.width;H=b.height;if(!W)return;cv.width=W*dpr;cv.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);draw()}
+ function P(n){return [W*(.12+.76*n.l/4)+mx*(n.l-2)*16,H*(.17+.66*(n.k+.5)/n.c)]}
+ function draw(){
+  x.clearRect(0,0,W,H);x.font="10px monospace";x.textAlign="center";
+  for(var l=0;l<5;l++){var gx=W*(.12+.76*l/4)+mx*(l-2)*16;x.strokeStyle="rgba(130,150,255,.14)";x.fillStyle="rgba(99,120,255,.05)";x.beginPath();x.rect(gx-24,H*.1,48,H*.8);x.fill();x.stroke();x.fillStyle="#7f93c8";x.fillText(N[l],gx,H*.07)}
+  edges.forEach(function(e){var a=P(e.a),b=P(e.b);x.strokeStyle="rgba(120,150,255,.22)";x.lineWidth=1;x.beginPath();x.moveTo(a[0],a[1]);x.lineTo(b[0],b[1]);x.stroke();var p=(t*.35+e.o)%1;x.fillStyle="#22d3ee";x.beginPath();x.arc(a[0]+(b[0]-a[0])*p,a[1]+(b[1]-a[1])*p,2,0,6.3);x.fill()});
+  nodes.forEach(function(n){var p=P(n),s=9+Math.sin(t*2+n.ph)*1.5;x.shadowColor=C[n.l];x.shadowBlur=12;x.fillStyle=C[n.l];x.fillRect(p[0]-s/2,p[1]-s/2,s,s);x.shadowBlur=0;x.fillStyle="#050816";x.fillRect(p[0]-2,p[1]-2,4,4)})
+ }
+ new ResizeObserver(rs).observe(cv);rs();
+ addEventListener("pointermove",function(e){mx=e.clientX/innerWidth-.5},{passive:true});
+ new IntersectionObserver(function(e){vis=e[0].isIntersecting;if(vis&&!RM)loop()}).observe(cv);
+ function loop(){if(run)return;run=true;(function f(){if(!vis){run=false;return}t+=.016;draw();requestAnimationFrame(f)})()}
+ if(!RM)loop();
+}
+/* contact: rotating torus-knot with an orbiting ring of points */
+function knot(cv){
+ if(!window.THREE||!cv)return;
+ var r;try{r=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true,powerPreference:"low-power"})}catch(e){return}
+ r.setPixelRatio(Math.min(devicePixelRatio,1.5));
+ var sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(45,1,.1,100);cam.position.z=6.5;
+ var g=new THREE.Group(),geo=new THREE.TorusKnotGeometry(1.1,.34,140,14,2,3);sc.add(g);
+ g.add(new THREE.LineSegments(new THREE.WireframeGeometry(geo),new THREE.LineBasicMaterial({color:0x6d7dff,transparent:true,opacity:.3,blending:THREE.AdditiveBlending,depthWrite:false})));
+ g.add(new THREE.Points(geo,new THREE.PointsMaterial({color:0x22d3ee,size:.035,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false})));
+ var ring=new THREE.Group(),rp=[],i;for(i=0;i<120;i++){var a=i/120*6.2832;rp.push(Math.cos(a)*2.3,0,Math.sin(a)*2.3)}
+ var rg=new THREE.BufferGeometry();rg.setAttribute("position",new THREE.Float32BufferAttribute(rp,3));
+ ring.add(new THREE.Points(rg,new THREE.PointsMaterial({color:0xa78bfa,size:.05,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false})));
+ var sats=[0x4f7cff,0x22d3ee,0x8b5cff].map(function(c){var m=new THREE.Mesh(new THREE.SphereGeometry(.09,12,12),new THREE.MeshBasicMaterial({color:c}));ring.add(m);return m});
+ ring.rotation.x=1.1;ring.rotation.z=.4;sc.add(ring);
+ var tx=0,vis=true,t=0,run=false;
+ function rs(){var b=cv.getBoundingClientRect();if(!b.width)return;r.setSize(b.width,b.height,false);cam.aspect=b.width/b.height;cam.updateProjectionMatrix()}
+ new ResizeObserver(rs).observe(cv);rs();
+ addEventListener("pointermove",function(e){tx=(e.clientY/innerHeight-.5)*.6},{passive:true});
+ function draw(){t+=.016;g.rotation.y+=.006;g.rotation.x+=(tx-g.rotation.x)*.04;ring.rotation.y-=.004;sats.forEach(function(m,i){var a=t*.8+i*2.094;m.position.set(Math.cos(a)*2.3,0,Math.sin(a)*2.3)});r.render(sc,cam)}
+ new IntersectionObserver(function(e){vis=e[0].isIntersecting;if(vis&&!RM)loop()}).observe(cv);
+ function loop(){if(run)return;run=true;(function f(){if(!vis){run=false;return}draw();requestAnimationFrame(f)})()}
+ if(RM){g.rotation.set(.4,.6,0);draw()}else loop();
+}
+layers($("#lab"));
+function boot(){orb($("#orb"),{n:170,R:2.4,j:.18,s:.07,t:1.05});knot($("#orb2"))}
+if(window.THREE)boot();else{var sc=document.querySelector('script[src*="three"]');sc&&sc.addEventListener("load",boot)}
+});
+</script>
 </body>
 </html>
